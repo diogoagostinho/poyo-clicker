@@ -4521,11 +4521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e4fef69ca603f4994a6765b8ed26a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeManager
-  clickerManager: {fileID: 826222765}
-  skinsContent: {fileID: 1167728268}
-  backgroundsContent: {fileID: 970090762}
-  musicContent: {fileID: 2128534958}
-  itemCardPrefab: {fileID: 2437413761205731231, guid: f20476db74ab3f24fae5874c23a2044d, type: 3}
   allItems:
   - {fileID: 11400000, guid: 993febfc7847a4848a5ae45e36ed9307, type: 2}
   - {fileID: 11400000, guid: 443c07285d3811c49af5359a284f0025, type: 2}
@@ -4534,14 +4529,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2eb06cadd7ebf1943bb802ea6fe0b159, type: 2}
   - {fileID: 11400000, guid: bc2a9d00863a30247ac59265f36159e4, type: 2}
   - {fileID: 11400000, guid: 34e515e805be34744a405721233a694a, type: 2}
-  skinsContentObject: {fileID: 1167728267}
-  backgroundsContentObject: {fileID: 970090761}
-  musicContentObject: {fileID: 2128534957}
-  skinsTabButton: {fileID: 1302830079}
-  backgroundsTabButton: {fileID: 825486365}
-  musicTabButton: {fileID: 980554810}
-  activeColor: {r: 0.89411765, g: 0.28235295, b: 0.5686275, a: 1}
-  inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  itemCardPrefab: {fileID: 2222004179530443939, guid: f20476db74ab3f24fae5874c23a2044d, type: 3}
+  skinsContent: {fileID: 1167728268}
+  backgroundsContent: {fileID: 970090762}
+  musicContent: {fileID: 2128534958}
+  clickerManager: {fileID: 826222765}
 --- !u!1 &1992558314
 GameObject:
   m_ObjectHideFlags: 0
