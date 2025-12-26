@@ -18,6 +18,9 @@ public class CustomizeManager : MonoBehaviour
     private Dictionary<CustomizeItemType, string> selected =
         new Dictionary<CustomizeItemType, string>();
 
+    private Dictionary<CustomizeItemType, List<CustomizeItemCard>> cardsByType
+        = new Dictionary<CustomizeItemType, List<CustomizeItemCard>>();
+
     void Start()
     {
         InitializeDefaults();
@@ -36,6 +39,22 @@ public class CustomizeManager : MonoBehaviour
     }
 
     // --------- PUBLIC API ---------
+
+    public void RegisterCard(CustomizeItemCard card, CustomizeItemType type)
+    {
+        if (!cardsByType.ContainsKey(type))
+            cardsByType[type] = new List<CustomizeItemCard>();
+
+        cardsByType[type].Add(card);
+    }
+
+    public void RefreshType(CustomizeItemType type)
+    {
+        if (!cardsByType.ContainsKey(type)) return;
+
+        foreach (var card in cardsByType[type])
+            card.UpdateUI();
+    }
 
     public bool IsUnlocked(CustomizeItemData item)
     {
@@ -65,6 +84,8 @@ public class CustomizeManager : MonoBehaviour
     {
         selected[item.itemType] = item.itemId;
         ApplyItem(item);
+
+        RefreshType(item.itemType);
     }
 
     // --------- APPLY ---------

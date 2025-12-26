@@ -18,6 +18,8 @@ public class CustomizeSpawner : MonoBehaviour
             Transform parent = GetParent(item.itemType);
             var card = Instantiate(cardPrefab, parent);
             card.Initialize(item, manager);
+
+            manager.RegisterCard(card, item.itemType);
         }
     }
 

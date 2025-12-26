@@ -36,7 +36,6 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
             return;
 
         manager.Select(data);
-        UpdateUI();
     }
 
     public void UpdateUI()
