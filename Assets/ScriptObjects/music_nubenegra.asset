@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
   m_Name: music_nubenegra
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
-  itemName: Nube Negra
-  icon: {fileID: 4815476061570213978, guid: d2d27f8142882e645b18ef2853c4a630, type: 3}
-  cost: 100
-  description: Bleach
+  itemId: 7
   itemType: 2
-  unlocked: 0
+  isDefault: 0
+  itemName: Nube Negra
+  description: Bleach OST
+  icon: {fileID: 4815476061570213978, guid: d2d27f8142882e645b18ef2853c4a630, type: 3}
+  cost: 1000
+  skinSprite: {fileID: 0}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: 120cb9c481bc8604687a5d55ef0dbb46, type: 3}

@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 465611875793303353}
   - component: {fileID: 1881601441286139778}
   - component: {fileID: 1946786433112802964}
-  - component: {fileID: 2222004179530443939}
+  - component: {fileID: 962760896426425349}
   m_Layer: 5
   m_Name: CustomizeItemCard
   m_TagString: Untagged
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &2222004179530443939
+--- !u!114 &962760896426425349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,14 +412,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee369720725c0640932e7dfdc4e3dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemCard
-  itemNameText: {fileID: 1533276419659076762}
+  nameText: {fileID: 1533276419659076762}
   iconImage: {fileID: 1719570753979912676}
   costText: {fileID: 3639817647688505350}
-  currencyIcon: {fileID: 7031785211728335930}
-  descriptionText: {fileID: 3482485720800668457}
-  cardButton: {fileID: 465611875793303353}
-  itemData: {fileID: 0}
-  cardBackground: {fileID: 5475624545236682174}
+  background: {fileID: 5475624545236682174}
+  lockedColor: {r: 0.8627451, g: 0.078431375, b: 0.23529412, a: 1}
+  unlockedColor: {r: 0.89411765, g: 0.28235295, b: 0.5686275, a: 1}
+  selectedColor: {r: 0.07450981, g: 0.8627451, b: 0.7058824, a: 1}
 --- !u!1 &4290202441534222767
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
   m_Name: skin_3dpoyo
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 2
+  itemType: 0
+  isDefault: 0
   itemName: 3D Poyo
+  description: Agora em 3D nos cinemas NOS
   icon: {fileID: 7036421692078609940, guid: ffc2d8f59470de3469127cd684849e42, type: 3}
   cost: 500
-  description: "Agora em 3D j\xE1 nos cinemas"
-  itemType: 0
-  unlocked: 0
+  skinSprite: {fileID: 7036421692078609940, guid: ffc2d8f59470de3469127cd684849e42, type: 3}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 0}

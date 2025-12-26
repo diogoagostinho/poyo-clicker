@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
   m_Name: skin_2dpoyo
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 1
+  itemType: 0
+  isDefault: 1
   itemName: 2D Poyo
+  description: "O cl\xE1ssico"
   icon: {fileID: 5328874219309221785, guid: cd9101e057d03a644a6745a12d339aaf, type: 3}
   cost: 0
-  description: "O cl\xE1ssico"
-  itemType: 0
-  unlocked: 1
+  skinSprite: {fileID: 5328874219309221785, guid: cd9101e057d03a644a6745a12d339aaf, type: 3}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 0}

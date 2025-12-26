@@ -1084,6 +1084,62 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1 &768663197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768663198}
+  - component: {fileID: 768663199}
+  m_Layer: 0
+  m_Name: CustomizeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &768663198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768663197}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1720159534}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &768663199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768663197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e4fef69ca603f4994a6765b8ed26a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeManager
+  allItems:
+  - {fileID: 11400000, guid: 993febfc7847a4848a5ae45e36ed9307, type: 2}
+  - {fileID: 11400000, guid: f76eb134c22dc67429dedefcb8fc489c, type: 2}
+  - {fileID: 11400000, guid: 9a0e5689ebfafea4e8d1ec47f246771c, type: 2}
+  - {fileID: 11400000, guid: 443c07285d3811c49af5359a284f0025, type: 2}
+  - {fileID: 11400000, guid: 202df89565d7d454e9640fa39e2069fb, type: 2}
+  - {fileID: 11400000, guid: 0dbad9d12e804804089f3237d1b4a923, type: 2}
+  - {fileID: 11400000, guid: e9430a91d6379144783ae47ab9a9baa7, type: 2}
+  clickerManager: {fileID: 826222765}
+  clickerImage: {fileID: 1447781791}
+  backgroundImage: {fileID: 1799486742}
+  musicSource: {fileID: 610248373}
 --- !u!1 &825486363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 825486366}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1498392335}
+        m_TargetAssemblyTypeName: CustomizeTabs, Assembly-CSharp
+        m_MethodName: ShowBackgrounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &825486366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,7 +1756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980554811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1498392335}
+        m_TargetAssemblyTypeName: CustomizeTabs, Assembly-CSharp
+        m_MethodName: ShowMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &980554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2715,7 +2795,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1302830080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1498392335}
+        m_TargetAssemblyTypeName: CustomizeTabs, Assembly-CSharp
+        m_MethodName: ShowSkins
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1302830080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3757,11 +3849,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 826222766}
+  - {fileID: 768663198}
+  - {fileID: 1771770479}
   - {fileID: 1005026651}
   - {fileID: 619394802}
   - {fileID: 684544265}
   - {fileID: 610248371}
-  - {fileID: 1980564849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738954477
@@ -4113,6 +4206,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748393401}
   m_CullTransparentMesh: 1
+--- !u!1 &1771770478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771770479}
+  - component: {fileID: 1771770480}
+  m_Layer: 0
+  m_Name: SpawnerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771770479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771770478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1720159534}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1771770480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771770478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce9cf2639c493c4db5382e138e3dde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeSpawner
+  manager: {fileID: 768663199}
+  cardPrefab: {fileID: 962760896426425349, guid: f20476db74ab3f24fae5874c23a2044d, type: 3}
+  skinsContent: {fileID: 1167728268}
+  backgroundsContent: {fileID: 970090762}
+  musicContent: {fileID: 2128534958}
 --- !u!1 &1799486739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,63 +4619,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948856395}
   m_CullTransparentMesh: 1
---- !u!1 &1980564848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1980564849}
-  - component: {fileID: 1980564850}
-  m_Layer: 0
-  m_Name: CustomizeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1980564849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980564848}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1720159534}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1980564850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980564848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e4fef69ca603f4994a6765b8ed26a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CustomizeManager
-  allItems:
-  - {fileID: 11400000, guid: 993febfc7847a4848a5ae45e36ed9307, type: 2}
-  - {fileID: 11400000, guid: 443c07285d3811c49af5359a284f0025, type: 2}
-  - {fileID: 11400000, guid: 0dbad9d12e804804089f3237d1b4a923, type: 2}
-  - {fileID: 11400000, guid: e5fcfe327065b1942a48841aea8ea151, type: 2}
-  - {fileID: 11400000, guid: 2eb06cadd7ebf1943bb802ea6fe0b159, type: 2}
-  - {fileID: 11400000, guid: bc2a9d00863a30247ac59265f36159e4, type: 2}
-  - {fileID: 11400000, guid: 34e515e805be34744a405721233a694a, type: 2}
-  itemCardPrefab: {fileID: 2222004179530443939, guid: f20476db74ab3f24fae5874c23a2044d, type: 3}
-  skinsContent: {fileID: 1167728268}
-  backgroundsContent: {fileID: 970090762}
-  musicContent: {fileID: 2128534958}
-  clickerManager: {fileID: 826222765}
 --- !u!1 &1992558314
 GameObject:
   m_ObjectHideFlags: 0

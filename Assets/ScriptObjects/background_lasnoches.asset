@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
   m_Name: background_lasnoches
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 4
+  itemType: 1
+  isDefault: 1
   itemName: Las Noches
+  description: "Local perfeita para un du\xE9lo"
   icon: {fileID: -3513505211758623211, guid: 536fc10d03f1802499340fc9bce4d13b, type: 3}
   cost: 0
-  description: "O local perfeito para un du\xE9lo"
-  itemType: 1
-  unlocked: 0
+  skinSprite: {fileID: 0}
+  backgroundSprite: {fileID: -3513505211758623211, guid: 536fc10d03f1802499340fc9bce4d13b, type: 3}
+  musicClip: {fileID: 0}

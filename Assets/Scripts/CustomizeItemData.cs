@@ -1,0 +1,22 @@
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Customize/Item")]
+public class CustomizeItemData : ScriptableObject
+{
+    [Header("Identity")]
+    public string itemId;
+    public CustomizeItemType itemType;
+    public bool isDefault;
+
+    [Header("UI")]
+    public string itemName;
+    [TextArea(2, 4)]
+    public string description;
+    public Sprite icon;
+    public int cost;
+
+    [Header("Apply Data")]
+    public Sprite skinSprite;
+    public Sprite backgroundSprite;
+    public AudioClip musicClip;
+}
