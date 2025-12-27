@@ -21,6 +21,9 @@ public class ClickerManager : MonoBehaviour
 
     public LevelUpTooltip levelUpTooltip;
 
+    [Header("Boss System")]
+    public BossManager bossManager;
+
     void Start()
     {
         UpdatePointsText();
@@ -36,18 +39,17 @@ public class ClickerManager : MonoBehaviour
             int idleIncome = idleUpgrade.GetPointsPerSecond();
             if (idleIncome > 0)
             {
-                points += idleIncome;
-                UpdatePointsText();
+                GainPoints(idleIncome);
             }
         }
     }
 
     public void AddPoints()
     {
-        points += clickPower;
+        GainPoints(clickPower);
+
         clickSound.pitch = Random.Range(0.75f, 1.25f);
         clickSound.Play();
-        UpdatePointsText();
     }
 
     public void UpdatePointsText()
@@ -55,18 +57,23 @@ public class ClickerManager : MonoBehaviour
         pointsText.text = "" + points;
     }
 
+    public void GainPoints(int amount)
+    {
+        // BossManager decides what happens with the gain
+        bossManager.AddPoints(amount);
+    }
+
+
     void Update()
     {
         // DEBUG: Press J to add 100 money
         if(Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)
         {
-            points+=100;
-            UpdatePointsText();
+            GainPoints(100);
         }
         if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
         {
-            points += 1000;
-            UpdatePointsText();
+            GainPoints(1000);
         }
     }
 

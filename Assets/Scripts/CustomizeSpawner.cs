@@ -10,8 +10,6 @@ public class CustomizeSpawner : MonoBehaviour
 
     void Start()
     {
-        //DEBUG
-        Debug.Log("CustomizeSpawner started");
 
         foreach (var item in manager.allItems)
         {
