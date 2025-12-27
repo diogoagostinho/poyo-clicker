@@ -13,6 +13,7 @@ public class BossManager : MonoBehaviour
     [Header("Music")]
     public AudioSource musicSource;
     AudioClip previousMusic;
+    public AudioClip originalMusic;
 
     [Header("Bosses")]
     public List<BossData> bosses;
@@ -29,12 +30,11 @@ public class BossManager : MonoBehaviour
     bool bossActive = false;
 
     Sprite originalClickerSprite;
-    AudioClip originalMusic;
 
     void Start()
     {
         originalClickerSprite = clickerImage.sprite;
-        originalMusic = musicSource.clip;
+        previousMusic = musicSource.clip;
     }
 
     // CALLED BY CLICKER MANAGER
@@ -61,11 +61,9 @@ public class BossManager : MonoBehaviour
         float difficulty = 1f + bossLevel * 0.25f;
 
         chargeProgress += points / (100f * difficulty);
-        bossBar.SetProgress(chargeProgress);
+        chargeProgress = Mathf.Clamp01(chargeProgress);
 
-        // ADD POINTS HERE
-        clickerManager.points += Mathf.RoundToInt(points);
-        clickerManager.UpdatePointsText();
+        bossBar.SetProgress(chargeProgress);
 
         if (chargeProgress >= 1f)
         {
@@ -115,27 +113,26 @@ public class BossManager : MonoBehaviour
     void DefeatBoss()
     {
         bossActive = false;
+
         bossHealth = 0f;
         bossMaxHealth = 0f;
-        bossLevel++;
 
         chargeProgress = 0f;
         bossBar.SetProgress(0f);
+
+        clickerImage.sprite = originalClickerSprite;
+
+        musicSource.clip = previousMusic != null ? previousMusic : originalMusic;
+        musicSource.loop = true;
+        musicSource.Play();
 
         int reward = Mathf.RoundToInt(
             bossRewardBase * Mathf.Pow(rewardMultiplier, bossLevel)
         );
 
-        // give reward
-        clickerManager.GainPoints(reward);
+        clickerManager.points += reward;
+        clickerManager.UpdatePointsText();
 
-        clickerImage.sprite = originalClickerSprite;
-
-        if (previousMusic != null)
-        {
-            musicSource.clip = previousMusic;
-            musicSource.loop = true;
-            musicSource.Play();
-        }
+        bossLevel++;
     }
 }

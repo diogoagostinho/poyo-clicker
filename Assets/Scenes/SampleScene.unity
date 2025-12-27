@@ -5478,6 +5478,7 @@ MonoBehaviour:
   bossBar: {fileID: 128429218}
   clickerImage: {fileID: 1447781791}
   musicSource: {fileID: 610248373}
+  originalMusic: {fileID: 8300000, guid: 138fa30dfe78525458c3124afb52368d, type: 3}
   bosses:
   - {fileID: 11400000, guid: d320d9a33dcbecc4ab8b56ac59d6a1e0, type: 2}
   - {fileID: 11400000, guid: ecb28f1e5bb225940b696726208f03e5, type: 2}
