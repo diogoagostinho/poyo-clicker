@@ -415,6 +415,7 @@ MonoBehaviour:
   nameText: {fileID: 1533276419659076762}
   iconImage: {fileID: 1719570753979912676}
   costText: {fileID: 3639817647688505350}
+  descriptionText: {fileID: 3482485720800668457}
   background: {fileID: 5475624545236682174}
   lockedColor: {r: 0.8627451, g: 0.078431375, b: 0.23529412, a: 1}
   unlockedColor: {r: 0.89411765, g: 0.28235295, b: 0.5686275, a: 1}

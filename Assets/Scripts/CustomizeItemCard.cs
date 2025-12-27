@@ -9,6 +9,7 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI nameText;
     public Image iconImage;
     public TextMeshProUGUI costText;
+    public TextMeshProUGUI descriptionText;
     public Image background;
 
     [Header("Colors")]
@@ -26,6 +27,17 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
 
         nameText.text = item.itemName;
         iconImage.sprite = item.icon;
+
+        // DESCRIPTION LOGIC
+        if (item.itemType == CustomizeItemType.Music)
+        {
+            descriptionText.gameObject.SetActive(false);
+        }
+        else
+        {
+            descriptionText.gameObject.SetActive(true);
+            descriptionText.text = item.description;
+        }
 
         UpdateUI();
     }
