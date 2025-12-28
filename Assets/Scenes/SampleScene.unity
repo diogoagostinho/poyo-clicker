@@ -5624,6 +5624,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ecb28f1e5bb225940b696726208f03e5, type: 2}
   - {fileID: 11400000, guid: fa5931a27b03b38498841f3c4ca4aceb, type: 2}
   - {fileID: 11400000, guid: 734d296efef694d47a0f6fe1c9b59df8, type: 2}
+  - {fileID: 11400000, guid: 66167afa6eeb85749a7fd379cb8eb9e9, type: 2}
+  - {fileID: 11400000, guid: 2e8c91406f30e3742bc74f2404d58c67, type: 2}
+  - {fileID: 11400000, guid: 0018795bd3e04cf4ebd1ddbf8acd87f6, type: 2}
+  - {fileID: 11400000, guid: abb29702256339d47a0a6bff2be6a878, type: 2}
   bossRewardBase: 1000
   rewardMultiplier: 1.5
 --- !u!1 &1738954477
