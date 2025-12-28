@@ -99,7 +99,7 @@ public class BossManager : MonoBehaviour
 
         if (bossObjectiveText != null)
         {
-            bossObjectiveText.text = $"Defeat {currentBossName}";
+            bossObjectiveText.text = $"Derrota {currentBossName}";
             bossObjectiveText.gameObject.SetActive(true);
         }
 

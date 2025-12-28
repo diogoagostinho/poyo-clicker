@@ -1,26 +1,15 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class IdleUpgrade : MonoBehaviour
 {
     public int level = 0;
-    public int cost = 6;
-
+    public int cost = 100;
     public float costMultiplier = 1.3f;
 
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI costText;
-    public TextMeshProUGUI descriptionText;
-
+    public IdleUpgradeTooltip tooltip;
     public ClickerManager clickerManager;
 
-    void Start()
-    {
-        RefreshUI();
-    }
-
-    public void OnClickUpgrade()
+    public void Upgrade()
     {
         if (clickerManager.points < cost)
             return;
@@ -30,14 +19,10 @@ public class IdleUpgrade : MonoBehaviour
         level++;
         cost = Mathf.RoundToInt(cost * costMultiplier);
 
-        RefreshUI();
-    }
-
-    void RefreshUI()
-    {
-        levelText.text = $"{level} / sec";
-        costText.text = $"Cost: {cost}";
         clickerManager.UpdatePointsText();
+
+        if (tooltip != null)
+            tooltip.RefreshTooltip();
     }
 
     public int GetPointsPerSecond()

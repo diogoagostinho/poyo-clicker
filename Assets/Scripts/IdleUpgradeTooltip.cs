@@ -3,18 +3,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class LevelUpTooltip : MonoBehaviour,
+public class IdleUpgradeTooltip : MonoBehaviour,
     IPointerEnterHandler,
     IPointerExitHandler
 {
     public CanvasGroup canvasGroup;
     public TextMeshProUGUI tooltipText;
-    public ClickerManager clickerManager;
+    public IdleUpgrade idleUpgrade;
 
     public float moveDistance = 10f;
     public float fadeDuration = 0.1f;
-
-    bool isVisible;
 
     RectTransform rectTransform;
     Vector3 hiddenPosition;
@@ -35,14 +33,12 @@ public class LevelUpTooltip : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isVisible = true;
         RefreshTooltip();
         StartFade(1f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isVisible = false;
         StartFade(0f);
     }
 
@@ -68,7 +64,6 @@ public class LevelUpTooltip : MonoBehaviour,
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-
             float t = elapsed / fadeDuration;
 
             canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
@@ -84,7 +79,7 @@ public class LevelUpTooltip : MonoBehaviour,
     public void RefreshTooltip()
     {
         tooltipText.text =
-            "Nível: " + clickerManager.clickPower + "\n" +
-            "Custo: " + clickerManager.levelUpCost;
+            $"{idleUpgrade.level}/s\n" +
+            $"Custo: {idleUpgrade.cost}";
     }
 }
