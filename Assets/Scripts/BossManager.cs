@@ -1,14 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class BossManager : MonoBehaviour
 {
     public ClickerManager clickerManager;
+    Vector2 originalClickerSize2d;
 
     [Header("UI")]
     public BossBarUI bossBar;
     public Image clickerImage;   // your "Poyo"
+
+    [Header("Boss UI")]
+    public TextMeshProUGUI bossObjectiveText;
 
     [Header("Music")]
     public AudioSource musicSource;
@@ -29,12 +34,15 @@ public class BossManager : MonoBehaviour
     int bossLevel = 0;
     bool bossActive = false;
 
+    string currentBossName;
+
     Sprite originalClickerSprite;
 
     void Start()
     {
         originalClickerSprite = clickerImage.sprite;
         previousMusic = musicSource.clip;
+        originalClickerSize2d = clickerImage.rectTransform.sizeDelta;
     }
 
     // CALLED BY CLICKER MANAGER
@@ -79,11 +87,19 @@ public class BossManager : MonoBehaviour
         chargeProgress = 1f;
 
         BossData boss = bosses[Random.Range(0, bosses.Count)];
+        currentBossName = boss.bossName;
+
+        if (bossObjectiveText != null)
+        {
+            bossObjectiveText.text = $"Defeat {currentBossName}";
+            bossObjectiveText.gameObject.SetActive(true);
+        }
 
         bossMaxHealth = boss.baseHealth * Mathf.Pow(boss.healthMultiplier, bossLevel);
         bossHealth = bossMaxHealth;
 
         clickerImage.sprite = boss.bossSprite;
+        clickerImage.rectTransform.sizeDelta = originalClickerSize2d * 3f;
 
         previousMusic = musicSource.clip;
         musicSource.clip = boss.bossMusic;
@@ -114,6 +130,11 @@ public class BossManager : MonoBehaviour
     {
         bossActive = false;
 
+        if (bossObjectiveText != null)
+        {
+            bossObjectiveText.gameObject.SetActive(false);
+        }
+
         bossHealth = 0f;
         bossMaxHealth = 0f;
 
@@ -121,6 +142,8 @@ public class BossManager : MonoBehaviour
         bossBar.SetProgress(0f);
 
         clickerImage.sprite = originalClickerSprite;
+        clickerImage.rectTransform.sizeDelta = originalClickerSize2d;
+
 
         musicSource.clip = previousMusic != null ? previousMusic : originalMusic;
         musicSource.loop = true;
