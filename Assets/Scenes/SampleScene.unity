@@ -1233,7 +1233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &541356742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1869,6 +1869,7 @@ MonoBehaviour:
   clickerImage: {fileID: 1447781791}
   backgroundImage: {fileID: 1799486742}
   musicSource: {fileID: 610248373}
+  bossManager: {fileID: 1734437512}
 --- !u!1 &825486363
 GameObject:
   m_ObjectHideFlags: 0

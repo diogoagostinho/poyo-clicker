@@ -38,6 +38,8 @@ public class BossManager : MonoBehaviour
 
     Sprite originalClickerSprite;
 
+    public bool IsBossActive => bossActive;
+
     void Start()
     {
         originalClickerSprite = clickerImage.sprite;

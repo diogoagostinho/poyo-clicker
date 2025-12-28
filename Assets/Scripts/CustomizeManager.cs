@@ -21,6 +21,8 @@ public class CustomizeManager : MonoBehaviour
     private Dictionary<CustomizeItemType, List<CustomizeItemCard>> cardsByType
         = new Dictionary<CustomizeItemType, List<CustomizeItemCard>>();
 
+    public BossManager bossManager;
+
     void Start()
     {
         InitializeDefaults();
@@ -69,6 +71,9 @@ public class CustomizeManager : MonoBehaviour
 
     public bool TryBuy(CustomizeItemData item)
     {
+        if (bossManager != null && bossManager.IsBossActive)
+            return false;
+
         if (IsUnlocked(item)) return true;
 
         if (clickerManager.points < item.cost)
@@ -82,9 +87,11 @@ public class CustomizeManager : MonoBehaviour
 
     public void Select(CustomizeItemData item)
     {
+        if (bossManager != null && bossManager.IsBossActive)
+            return;
+
         selected[item.itemType] = item.itemId;
         ApplyItem(item);
-
         RefreshType(item.itemType);
     }
 

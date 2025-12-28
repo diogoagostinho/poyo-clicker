@@ -44,6 +44,9 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (manager.bossManager != null && manager.bossManager.IsBossActive)
+            return;
+
         if (!manager.TryBuy(data))
             return;
 
