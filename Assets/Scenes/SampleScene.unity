@@ -5616,6 +5616,8 @@ MonoBehaviour:
   clickerManager: {fileID: 826222765}
   bossBar: {fileID: 128429218}
   clickerImage: {fileID: 1447781791}
+  baseChargeRequirement: 300
+  chargeDifficultyMultiplier: 1.15
   bossObjectiveText: {fileID: 541356743}
   musicSource: {fileID: 610248373}
   originalMusic: {fileID: 8300000, guid: 138fa30dfe78525458c3124afb52368d, type: 3}
@@ -5628,8 +5630,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e8c91406f30e3742bc74f2404d58c67, type: 2}
   - {fileID: 11400000, guid: 0018795bd3e04cf4ebd1ddbf8acd87f6, type: 2}
   - {fileID: 11400000, guid: abb29702256339d47a0a6bff2be6a878, type: 2}
+  - {fileID: 11400000, guid: 778b114d0c674d5498bb11a0037b0fd2, type: 2}
+  - {fileID: 11400000, guid: 52fde6e583b28ee4dbf4ca955a600d12, type: 2}
+  - {fileID: 11400000, guid: fee02f5e89c24514db498346890fa436, type: 2}
+  - {fileID: 11400000, guid: 8edf0b76420c9554ca2f8ec2c8d189a8, type: 2}
+  - {fileID: 11400000, guid: da4fe5b1c4af16e47982fc2135083f4b, type: 2}
+  - {fileID: 11400000, guid: 885d0762897dd77429b4e8f89911379d, type: 2}
   bossRewardBase: 1000
   rewardMultiplier: 1.5
+  customizeManager: {fileID: 768663199}
 --- !u!1 &1738954477
 GameObject:
   m_ObjectHideFlags: 0

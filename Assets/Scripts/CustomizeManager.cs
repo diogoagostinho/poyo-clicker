@@ -120,4 +120,15 @@ public class CustomizeManager : MonoBehaviour
                 break;
         }
     }
+
+    public void ReapplyCurrentSkin()
+    {
+        if (!selected.TryGetValue(CustomizeItemType.Skin, out var skinId))
+            return;
+
+        CustomizeItemData skin = allItems.Find(i => i.itemId == skinId);
+        if (skin != null)
+            ApplyItem(skin);
+    }
+
 }

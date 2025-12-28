@@ -12,6 +12,10 @@ public class BossManager : MonoBehaviour
     public BossBarUI bossBar;
     public Image clickerImage;   // your "Poyo"
 
+    [Header("Boss Charge Difficulty")]
+    public float baseChargeRequirement = 100f;
+    public float chargeDifficultyMultiplier = 1.35f;
+
     [Header("Boss UI")]
     public TextMeshProUGUI bossObjectiveText;
 
@@ -35,6 +39,7 @@ public class BossManager : MonoBehaviour
     bool bossActive = false;
 
     string currentBossName;
+    public CustomizeManager customizeManager;
 
     Sprite originalClickerSprite;
 
@@ -42,7 +47,6 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
-        originalClickerSprite = clickerImage.sprite;
         previousMusic = musicSource.clip;
         originalClickerSize2d = clickerImage.rectTransform.sizeDelta;
     }
@@ -68,9 +72,10 @@ public class BossManager : MonoBehaviour
 
     void ChargeBoss(float points)
     {
-        float difficulty = 1f + bossLevel * 0.25f;
+        float required = baseChargeRequirement *
+                         Mathf.Pow(chargeDifficultyMultiplier, bossLevel);
 
-        chargeProgress += points / (100f * difficulty);
+        chargeProgress += points / required;
         chargeProgress = Mathf.Clamp01(chargeProgress);
 
         bossBar.SetProgress(chargeProgress);
@@ -80,6 +85,7 @@ public class BossManager : MonoBehaviour
             SummonBoss();
         }
     }
+
 
     // ---------------- BOSS ----------------
 
@@ -143,7 +149,7 @@ public class BossManager : MonoBehaviour
         chargeProgress = 0f;
         bossBar.SetProgress(0f);
 
-        clickerImage.sprite = originalClickerSprite;
+        customizeManager.ReapplyCurrentSkin();
         clickerImage.rectTransform.sizeDelta = originalClickerSize2d;
 
 
