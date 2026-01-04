@@ -77,6 +77,10 @@ public class ClickerManager : MonoBehaviour
         {
             GainPoints(1000);
         }
+        if (Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            GainPoints(100000);
+        }
     }
 
     public void LevelUpClick()

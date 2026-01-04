@@ -58,5 +58,7 @@ public class PrestigeManager : MonoBehaviour
 
         // Reset bosses
         bossManager.ResetBossProgress();
+
+        PrestigeVideoPlayer.Instance.PlayPrestigeVideo();
     }
 }
