@@ -6740,7 +6740,7 @@ MonoBehaviour:
   manager: {fileID: 768663199}
   cardPrefab: {fileID: 962760896426425349, guid: f20476db74ab3f24fae5874c23a2044d, type: 3}
   skinsContent: {fileID: 1167728268}
-  backgroundsContent: {fileID: 0}
+  backgroundsContent: {fileID: 774698761}
   musicContent: {fileID: 2128534958}
 --- !u!1 &1790968507
 GameObject:
