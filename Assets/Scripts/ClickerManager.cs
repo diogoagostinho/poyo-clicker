@@ -24,6 +24,8 @@ public class ClickerManager : MonoBehaviour
     [Header("Boss System")]
     public BossManager bossManager;
 
+    public PrestigeManager prestigeManager;
+
     void Start()
     {
         UpdatePointsText();
@@ -83,7 +85,7 @@ public class ClickerManager : MonoBehaviour
             return;
 
         points -= levelUpCost;
-        clickPower++;
+        clickPower += 1 + prestigeManager.prestigeCount;
         levelUpCost = Mathf.RoundToInt(levelUpCost * 1.5f);
 
         UpdatePointsText();
@@ -92,4 +94,14 @@ public class ClickerManager : MonoBehaviour
         if (levelUpTooltip != null)
             levelUpTooltip.RefreshTooltip();
     }
+
+    public void ResetProgress()
+    {
+        points = 0;
+        clickPower = 1;
+        levelUpCost = 10;
+        UpdatePointsText();
+    }
+
 }
+

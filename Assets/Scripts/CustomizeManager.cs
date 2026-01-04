@@ -131,4 +131,43 @@ public class CustomizeManager : MonoBehaviour
             ApplyItem(skin);
     }
 
+    public void ReapplyCurrentBackground()
+    {
+        if (!selected.TryGetValue(CustomizeItemType.Background, out var backgroundId))
+            return;
+
+        CustomizeItemData background = allItems.Find(i => i.itemId == backgroundId);
+        if (background != null)
+            ApplyItem(background);
+    }
+
+    public void ReapplyCurrentMusic()
+    {
+        if (!selected.TryGetValue(CustomizeItemType.Music, out var musicId))
+            return;
+
+        CustomizeItemData music = allItems.Find(i => i.itemId == musicId);
+        if (music != null)
+            ApplyItem(music);
+    }
+
+    public void ApplyCurrentSelection(CustomizeItemType type)
+    {
+        switch (type)
+        {
+            case CustomizeItemType.Skin:
+                ReapplyCurrentSkin();
+                break;
+
+            case CustomizeItemType.Background:
+                ReapplyCurrentBackground();
+                break;
+
+            case CustomizeItemType.Music:
+                ReapplyCurrentMusic();
+                break;
+        }
+    }
+
+
 }

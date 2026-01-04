@@ -2,20 +2,61 @@ using UnityEngine;
 
 public class PrestigeManager : MonoBehaviour
 {
-    public static PrestigeManager Instance;
+    public static PrestigeManager Instance { get; private set; }
 
+    public int PrestigeCount { get; private set; }
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    [Header("Prestige Settings")]
     public int prestigeCount = 0;
     public int basePrestigeCost = 250000;
     public int currentPrestigeCost;
 
-    void Awake()
+    [Header("References")]
+    public ClickerManager clickerManager;
+    public BossManager bossManager;
+    public IdleUpgrade idleUpgrade;
+
+    void Start()
     {
-        Instance = this;
         currentPrestigeCost = basePrestigeCost;
     }
 
-    public bool CanPrestige(int points)
+    public bool CanPrestige(int currentPoints)
     {
-        return points >= currentPrestigeCost;
+        return currentPoints >= currentPrestigeCost;
+    }
+
+    public void ExecutePrestige()
+    {
+        // Spend points
+        clickerManager.points = 0;
+        clickerManager.UpdatePointsText();
+
+        // Increase prestige
+        prestigeCount++;
+        currentPrestigeCost *= 2;
+
+        // Reset click power + level up cost
+        clickerManager.clickPower = 1;
+        clickerManager.levelUpCost = 10;
+
+        // Reset idle upgrade
+        idleUpgrade.level = 0;
+        idleUpgrade.cost = 6;
+        idleUpgrade.RefreshAfterPrestige();
+
+        // Reset bosses
+        bossManager.ResetBossProgress();
     }
 }

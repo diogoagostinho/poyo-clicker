@@ -629,7 +629,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 111756539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1966664768}
+        m_TargetAssemblyTypeName: PrestigePanel, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &111756539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,6 +1167,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 506415541}
   tooltipText: {fileID: 1492240713}
   idleUpgrade: {fileID: 1790968509}
+  prestigeManager: {fileID: 842776738}
   moveDistance: 10
   fadeDuration: 0.1
 --- !u!1 &258777561
@@ -3047,7 +3060,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 788597270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1966664768}
+        m_TargetAssemblyTypeName: PrestigePanel, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &788597270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,6 +3282,7 @@ MonoBehaviour:
   levelUpText: {fileID: 2003557002}
   levelUpTooltip: {fileID: 2142696724}
   bossManager: {fileID: 1734437512}
+  prestigeManager: {fileID: 842776738}
 --- !u!4 &826222766
 Transform:
   m_ObjectHideFlags: 0
@@ -3317,8 +3343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrestigeManager
   prestigeCount: 0
-  basePrestigeCost: 250000
+  basePrestigeCost: 100000
   currentPrestigeCost: 0
+  clickerManager: {fileID: 826222765}
+  bossManager: {fileID: 1734437512}
+  idleUpgrade: {fileID: 1790968509}
 --- !u!1 &901029943
 GameObject:
   m_ObjectHideFlags: 0
@@ -7645,7 +7674,7 @@ MonoBehaviour:
   chargeDifficultyMultiplier: 1.15
   bossObjectiveText: {fileID: 541356743}
   musicSource: {fileID: 610248373}
-  originalMusic: {fileID: 8300000, guid: 138fa30dfe78525458c3124afb52368d, type: 3}
+  originalMusic: {fileID: 8300000, guid: d2c7c75242a993a4c944aa468798cfce, type: 3}
   bosses:
   - {fileID: 11400000, guid: d320d9a33dcbecc4ab8b56ac59d6a1e0, type: 2}
   - {fileID: 11400000, guid: ecb28f1e5bb225940b696726208f03e5, type: 2}
@@ -7974,6 +8003,8 @@ MonoBehaviour:
   costMultiplier: 1.3
   tooltip: {fileID: 223310631}
   clickerManager: {fileID: 826222765}
+  levelUpTooltip: {fileID: 2142696724}
+  prestigeManager: {fileID: 842776738}
 --- !u!1 &1799486739
 GameObject:
   m_ObjectHideFlags: 0
@@ -8625,13 +8656,14 @@ GameObject:
   - component: {fileID: 1966664765}
   - component: {fileID: 1966664767}
   - component: {fileID: 1966664766}
+  - component: {fileID: 1966664768}
   m_Layer: 5
   m_Name: PrestigePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1966664765
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8694,6 +8726,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966664764}
   m_CullTransparentMesh: 1
+--- !u!114 &1966664768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966664764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb56a86c49706a4998472f0602c6a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrestigePanel
+  messageText: {fileID: 1547502466}
+  prestigeCountText: {fileID: 1709881518}
+  prestigeCostText: {fileID: 38043771}
+  closeButton: {fileID: 788597269}
+  activateButton: {fileID: 1374078745}
+  clickerManager: {fileID: 826222765}
+  prestigeManager: {fileID: 842776738}
 --- !u!1 &1968676187
 GameObject:
   m_ObjectHideFlags: 0

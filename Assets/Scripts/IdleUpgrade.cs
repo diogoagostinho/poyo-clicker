@@ -8,6 +8,10 @@ public class IdleUpgrade : MonoBehaviour
 
     public IdleUpgradeTooltip tooltip;
     public ClickerManager clickerManager;
+    public LevelUpTooltip levelUpTooltip;
+    public PrestigeManager prestigeManager;
+
+    public event System.Action OnUpgradeChanged;
 
     public void Upgrade()
     {
@@ -23,10 +27,24 @@ public class IdleUpgrade : MonoBehaviour
 
         if (tooltip != null)
             tooltip.RefreshTooltip();
+
+        OnUpgradeChanged?.Invoke();
     }
 
     public int GetPointsPerSecond()
     {
-        return level;
+        return level * (1 + prestigeManager.prestigeCount);
     }
+
+    public void RefreshAfterPrestige()
+    {
+        clickerManager.UpdatePointsText();
+        levelUpTooltip.RefreshTooltip();
+    }
+
+    public int GetEffectivePointsPerSecond()
+    {
+        return level + PrestigeManager.Instance.prestigeCount;
+    }
+
 }

@@ -166,4 +166,34 @@ public class BossManager : MonoBehaviour
 
         bossLevel++;
     }
+
+    public void HideBossObjective()
+    {
+        bossObjectiveText.gameObject.SetActive(false);
+    }
+
+
+    public void ResetBossProgress()
+    {
+        bossActive = false;
+        bossLevel = 0;
+
+        chargeProgress = 0f;
+        bossHealth = 0f;
+        bossMaxHealth = 100f;
+
+        bossBar.SetProgress(0f);
+        HideBossObjective();
+
+        if (customizeManager != null)
+        {
+            customizeManager.ApplyCurrentSelection(CustomizeItemType.Skin);
+            customizeManager.ApplyCurrentSelection(CustomizeItemType.Music);
+        }
+
+        clickerImage.rectTransform.sizeDelta = originalClickerSize2d;
+
+        musicSource.loop = true;
+    }
+
 }
