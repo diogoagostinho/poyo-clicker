@@ -71,22 +71,17 @@ public class DragonBallManager : MonoBehaviour
 
     DragonBallData GetNextUncollectedBall()
     {
-        List<DragonBallData> available = new List<DragonBallData>();
+        //List<DragonBallData> available = new List<DragonBallData>();
 
         foreach (var ball in allDragonBalls)
         {
             if (!collected.ContainsKey(ball.type))
             {
-                available.Add(ball);
+                return ball;
             }
         }
-
-        if (available.Count == 0)
-            return null;
-
-        return available[Random.Range(0, available.Count)];
+        return null;
     }
-
 
 
     public void CollectBall(DragonBallData data)
@@ -127,7 +122,9 @@ public class DragonBallManager : MonoBehaviour
     void TriggerGogeta()
     {
         canSpawn = false;
-        GogetaBossManager.Instance.StartGogetaFight();
+
+        SecretBossVideoPlayer.Instance.PlaySBVideo();
+        //GogetaBossManager.Instance.StartGogetaFight();
     }
 
     public void ResetForPrestige()
@@ -140,4 +137,13 @@ public class DragonBallManager : MonoBehaviour
 
         StartCoroutine(SpawnRoutine());
     }
+
+    public void ClearCollectedUI()
+    {
+        collected.Clear();
+
+        foreach (Transform child in collectedUIParent)
+            Destroy(child.gameObject);
+    }
+
 }

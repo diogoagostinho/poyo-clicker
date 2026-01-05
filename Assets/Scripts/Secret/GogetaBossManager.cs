@@ -23,6 +23,9 @@ public class GogetaBossManager : MonoBehaviour
     AudioClip previousMusic;
     public bool IsActive { get; private set; }
 
+    Vector2 originalClickerSize;
+    public float gogetaSizeMultiplier = 3f;
+
     void Awake()
     {
         Instance = this;
@@ -37,10 +40,13 @@ public class GogetaBossManager : MonoBehaviour
 
         health = maxHealth;
 
+        originalClickerSize = clickerImage.rectTransform.sizeDelta;
+
         previousSprite = clickerImage.sprite;
         previousMusic = musicSource.clip;
 
         clickerImage.sprite = gogetaSprite;
+        clickerImage.rectTransform.sizeDelta = originalClickerSize * gogetaSizeMultiplier;
 
         musicSource.clip = gogetaMusic;
         musicSource.loop = true;
@@ -66,11 +72,15 @@ public class GogetaBossManager : MonoBehaviour
         IsActive = false;
 
         clickerImage.sprite = previousSprite;
+        clickerImage.rectTransform.sizeDelta = originalClickerSize;
+
         musicSource.clip = previousMusic;
         musicSource.Play();
 
         bossObjectiveText.gameObject.SetActive(false);
         bossBar.SetProgress(0f);
+
+        DragonBallManager.Instance.ClearCollectedUI();
 
         GameLockManager.Instance.UnlockAfterSecretBoss();
     }
