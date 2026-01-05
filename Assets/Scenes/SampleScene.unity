@@ -1582,6 +1582,8 @@ MonoBehaviour:
   clickerImage: {fileID: 1447781791}
   musicSource: {fileID: 610248373}
   bossObjectiveText: {fileID: 541356743}
+  backgroundImage: {fileID: 1799486742}
+  gogetaBackground: {fileID: -556798164925953421, guid: 05d6989f7161eac4a97b3762605a5858, type: 3}
   gogetaSizeMultiplier: 3
 --- !u!1 &346861123
 GameObject:

@@ -19,7 +19,12 @@ public class GogetaBossManager : MonoBehaviour
     public AudioSource musicSource;
     public TextMeshProUGUI bossObjectiveText;
 
+    [Header("Background")]
+    public Image backgroundImage;
+    public Sprite gogetaBackground;
+
     Sprite previousSprite;
+    Sprite previousBackground;
     AudioClip previousMusic;
     public bool IsActive { get; private set; }
 
@@ -42,6 +47,9 @@ public class GogetaBossManager : MonoBehaviour
 
         originalClickerSize = clickerImage.rectTransform.sizeDelta;
 
+        previousBackground = backgroundImage.sprite;
+        backgroundImage.sprite = gogetaBackground;
+
         previousSprite = clickerImage.sprite;
         previousMusic = musicSource.clip;
 
@@ -52,7 +60,7 @@ public class GogetaBossManager : MonoBehaviour
         musicSource.loop = true;
         musicSource.Play();
 
-        bossObjectiveText.text = "Defeat Gogeta";
+        bossObjectiveText.text = "Derrota o Gogeta";
         bossObjectiveText.gameObject.SetActive(true);
 
         bossBar.SetProgress(1f);
@@ -73,6 +81,9 @@ public class GogetaBossManager : MonoBehaviour
 
         clickerImage.sprite = previousSprite;
         clickerImage.rectTransform.sizeDelta = originalClickerSize;
+
+        if (previousBackground != null)
+            backgroundImage.sprite = previousBackground;
 
         musicSource.clip = previousMusic;
         musicSource.Play();
