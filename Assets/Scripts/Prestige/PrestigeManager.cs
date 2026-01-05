@@ -59,6 +59,8 @@ public class PrestigeManager : MonoBehaviour
         // Reset bosses
         bossManager.ResetBossProgress();
 
+        DragonBallManager.Instance.ResetForPrestige();
+
         PrestigeVideoPlayer.Instance.PlayPrestigeVideo();
     }
 }
