@@ -16,6 +16,14 @@ public class BossData : ScriptableObject
     public int maxPointDrain = 30000;
     public Sprite pointsIconOverride;
 
+    [Header("Multi-Phase Boss")]
+    public bool hasSecondPhase;
+
+    [Header("Second Phase Settings")]
+    public string secondPhaseName;
+    public Sprite secondPhaseSprite;
+    public float secondPhaseHealthMultiplier = 3f;
+
     [Header("Difficulty")]
     public float baseHealth = 100f;
     public float healthMultiplier = 1.2f;

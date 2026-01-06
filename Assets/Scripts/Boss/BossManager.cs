@@ -50,6 +50,9 @@ public class BossManager : MonoBehaviour
     public Image pointsIcon;
     Sprite originalPointsIcon;
 
+    bool isSecondPhase = false;
+    BossData currentBossData;
+
     void Start()
     {
         previousMusic = musicSource.clip;
@@ -101,6 +104,9 @@ public class BossManager : MonoBehaviour
 
         BossData boss = bosses[Random.Range(0, bosses.Count)];
         currentBossName = boss.bossName;
+
+        currentBossData = boss;
+        isSecondPhase = false;
 
         DragonBallManager.Instance?.ClearActiveBall();
 
@@ -164,9 +170,41 @@ public class BossManager : MonoBehaviour
 
         if (bossHealth <= 0f)
         {
-            DefeatBoss();
+            if (currentBossData.hasSecondPhase && !isSecondPhase)
+            {
+                TriggerSecondPhase();
+            }
+            else
+            {
+                DefeatBoss();
+            }
         }
     }
+
+    void TriggerSecondPhase()
+    {
+        isSecondPhase = true;
+
+        // Increase health
+        bossMaxHealth *= currentBossData.secondPhaseHealthMultiplier;
+        bossHealth = bossMaxHealth;
+
+        // Change sprite
+        if (currentBossData.secondPhaseSprite != null)
+            clickerImage.sprite = currentBossData.secondPhaseSprite;
+
+        // Change name
+        if (bossObjectiveText != null)
+        {
+            bossObjectiveText.text = $"Derrota {currentBossData.secondPhaseName}";
+        }
+
+        // IMPORTANT: Do NOT touch music
+        // Music continues naturally
+
+        bossBar.SetProgress(1f);
+    }
+
 
     void UpdateBossBar()
     {
@@ -178,6 +216,9 @@ public class BossManager : MonoBehaviour
         bossActive = false;
 
         uiFlipController.ResetUI();
+
+        isSecondPhase = false;
+        currentBossData = null;
 
         if (bossObjectiveText != null)
         {
