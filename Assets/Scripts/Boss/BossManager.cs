@@ -44,6 +44,7 @@ public class BossManager : MonoBehaviour
     Sprite originalClickerSprite;
 
     public bool IsBossActive => bossActive;
+    public UIFlipController uiFlipController;
 
     void Start()
     {
@@ -97,6 +98,13 @@ public class BossManager : MonoBehaviour
         BossData boss = bosses[Random.Range(0, bosses.Count)];
         currentBossName = boss.bossName;
 
+        DragonBallManager.Instance?.ClearActiveBall();
+
+        if (boss.flipsUI)
+        {
+            uiFlipController.FlipUI();
+        }
+
         if (bossObjectiveText != null)
         {
             bossObjectiveText.text = $"Derrota {currentBossName}";
@@ -137,6 +145,8 @@ public class BossManager : MonoBehaviour
     void DefeatBoss()
     {
         bossActive = false;
+
+        uiFlipController.ResetUI();
 
         if (bossObjectiveText != null)
         {

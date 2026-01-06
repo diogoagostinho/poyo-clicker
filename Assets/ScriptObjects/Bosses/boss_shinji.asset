@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
+  m_Name: boss_shinji
+  m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossName: Shinji
+  bossSprite: {fileID: -1400825204763850369, guid: 668609a069370cc4c89a5506539b1039, type: 3}
+  bossMusic: {fileID: 8300000, guid: 5901f874fc7b8564eb466d6c5ca6e75f, type: 3}
+  flipsUI: 1
+  baseHealth: 300
+  healthMultiplier: 1.5

@@ -25,6 +25,7 @@ public class DragonBallManager : MonoBehaviour
     [Header("Dragon Balls")]
     public List<DragonBallData> allDragonBalls;
 
+    BossManager bossManager;
 
     void Awake()
     {
@@ -33,6 +34,7 @@ public class DragonBallManager : MonoBehaviour
 
     void Start()
     {
+        bossManager = FindFirstObjectByType<BossManager>();
         StartCoroutine(SpawnRoutine());
     }
 
@@ -45,7 +47,35 @@ public class DragonBallManager : MonoBehaviour
             if (collected.Count >= 7)
                 yield break;
 
-            SpawnBall();
+            if (CanSpawnBall())
+            {
+                SpawnBall();
+            }
+        }
+    }
+
+    bool CanSpawnBall()
+    {
+        if (bossManager != null && bossManager.IsBossActive)
+            return false;
+
+        if (GogetaBossManager.Instance != null &&
+            GogetaBossManager.Instance.IsActive)
+            return false;
+
+        if (!canSpawn)
+            return false;
+
+        return true;
+
+    }
+
+    public void ClearActiveBall()
+    {
+        if (currentSpawnedBall != null)
+        {
+            Destroy(currentSpawnedBall);
+            currentSpawnedBall = null;
         }
     }
 
