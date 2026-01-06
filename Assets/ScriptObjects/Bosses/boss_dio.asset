@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
+  m_Name: boss_dio
+  m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossName: Dio
+  bossSprite: {fileID: -7361430303236349603, guid: 28b79be396a3fc64380e8bf3e00ca06f, type: 3}
+  bossMusic: {fileID: 8300000, guid: 2c59416fd9c9d6644b75ee2110567faa, type: 3}
+  flipsUI: 0
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 1
+  spawnSfx: {fileID: 8300000, guid: f7152fa861bcd194bad34810eef7fef9, type: 3}
+  dioGrayscaleMaterial: {fileID: 2100000, guid: 86650da82a7802045bdffcabd1409a63, type: 2}
+  baseHealth: 100
+  healthMultiplier: 1.2

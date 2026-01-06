@@ -8395,6 +8395,13 @@ MonoBehaviour:
   - {fileID: 2142696719}
   - {fileID: 223310626}
   - {fileID: 2024206139}
+  disabledButtonsDio:
+  - {fileID: 2142696719}
+  - {fileID: 223310626}
+  - {fileID: 2024206139}
+  - {fileID: 111756536}
+  - {fileID: 346861123}
+  - {fileID: 1319506742}
 --- !u!1 &1720159533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8490,6 +8497,7 @@ MonoBehaviour:
   customizeManager: {fileID: 768663199}
   uiFlipController: {fileID: 1848800898}
   pointsIcon: {fileID: 1738954479}
+  backgroundImage: {fileID: 1799486742}
 --- !u!1 &1738954477
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class BossManager : MonoBehaviour
 {
@@ -53,6 +54,12 @@ public class BossManager : MonoBehaviour
     bool isSecondPhase = false;
     BossData currentBossData;
 
+    bool isDioActive = false;
+    Material originalBackgroundMaterial;
+
+    [Header("Background")]
+    public Image backgroundImage;
+
     void Start()
     {
         previousMusic = musicSource.clip;
@@ -68,6 +75,9 @@ public class BossManager : MonoBehaviour
 
         if (bossActive)
         {
+           /* if (isDioActive && amount != clickerManager.clickPower)
+                return;*/
+
             DamageBoss(amount);
         }
         else
@@ -107,6 +117,7 @@ public class BossManager : MonoBehaviour
 
         currentBossData = boss;
         isSecondPhase = false;
+        isDioActive = boss.isDio;
 
         DragonBallManager.Instance?.ClearActiveBall();
 
@@ -127,6 +138,17 @@ public class BossManager : MonoBehaviour
         clickerImage.sprite = boss.bossSprite;
         clickerImage.rectTransform.sizeDelta = originalClickerSize2d * 3f;
 
+        if (boss.isDio && boss.dioGrayscaleMaterial != null)
+        {
+            originalBackgroundMaterial = backgroundImage.material;
+            backgroundImage.material = boss.dioGrayscaleMaterial;
+        }
+
+        if (boss.isDio)
+        {
+            GameLockManager.Instance.LockForDio();
+        }
+
         originalPointsIcon = pointsIcon.sprite;
         if (boss.drainPointsOnStart)
         {
@@ -134,12 +156,34 @@ public class BossManager : MonoBehaviour
         }
 
         previousMusic = musicSource.clip;
-        musicSource.clip = boss.bossMusic;
-        musicSource.loop = true;
-        musicSource.Play();
+        if (boss.isDio && boss.spawnSfx != null)
+        {
+            StartCoroutine(PlayDioIntro(boss));
+        }
+        else
+        {
+            musicSource.clip = boss.bossMusic;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
 
         bossBar.SetProgress(1f);
     }
+
+    IEnumerator PlayDioIntro(BossData boss)
+    {
+        musicSource.Stop();
+        musicSource.loop = false;
+        musicSource.clip = boss.spawnSfx;
+        musicSource.Play();
+
+        yield return new WaitForSeconds(boss.spawnSfx.length);
+
+        musicSource.clip = boss.bossMusic;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
 
     void ApplyPointDrainBoss(BossData boss)
     {
@@ -205,6 +249,10 @@ public class BossManager : MonoBehaviour
         bossBar.SetProgress(1f);
     }
 
+    public bool IsDioActive()
+    {
+        return bossActive && isDioActive;
+    }
 
     void UpdateBossBar()
     {
@@ -219,6 +267,13 @@ public class BossManager : MonoBehaviour
 
         isSecondPhase = false;
         currentBossData = null;
+
+        if (isDioActive)
+        {
+            GameLockManager.Instance.UnlockAfterDio();
+            backgroundImage.material = originalBackgroundMaterial;
+            isDioActive = false;
+        }
 
         if (bossObjectiveText != null)
         {

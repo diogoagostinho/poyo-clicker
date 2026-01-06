@@ -24,6 +24,13 @@ public class BossData : ScriptableObject
     public Sprite secondPhaseSprite;
     public float secondPhaseHealthMultiplier = 3f;
 
+    [Header("Special Boss: Dio")]
+    public bool isDio;
+    public AudioClip spawnSfx;
+
+    [Tooltip("Grayscale material or shader for Dio fight")]
+    public Material dioGrayscaleMaterial;
+
     [Header("Difficulty")]
     public float baseHealth = 100f;
     public float healthMultiplier = 1.2f;

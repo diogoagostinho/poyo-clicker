@@ -41,13 +41,12 @@ public class ClickerManager : MonoBehaviour
             int idleIncome = idleUpgrade.GetPointsPerSecond();
             if (idleIncome > 0)
             {
-                if (GogetaBossManager.Instance != null &&
-                    GogetaBossManager.Instance.IsActive)
+                if (GogetaBossManager.Instance != null && GogetaBossManager.Instance.IsActive)
                 {
                     GogetaBossManager.Instance.Damage(idleIncome);
-                }
+                 }
 
-                GainPoints(idleIncome);
+                 GainPoints(idleIncome);
             }
         }
     }
@@ -67,8 +66,7 @@ public class ClickerManager : MonoBehaviour
 
     public void GainPoints(int amount)
     {
-        if (GogetaBossManager.Instance != null &&
-        GogetaBossManager.Instance.IsActive)
+        if (GogetaBossManager.Instance != null && GogetaBossManager.Instance.IsActive)
         {
             GogetaBossManager.Instance.Damage(amount);
             return; //boss absorbs clicks

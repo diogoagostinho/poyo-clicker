@@ -5,6 +5,7 @@ public class GameLockManager : MonoBehaviour
     public static GameLockManager Instance;
 
     public GameObject[] disabledButtons;
+    public GameObject[] disabledButtonsDio;
 
     void Awake()
     {
@@ -22,4 +23,17 @@ public class GameLockManager : MonoBehaviour
         foreach (var b in disabledButtons)
             b.SetActive(true);
     }
+
+    public void LockForDio()
+    {
+        foreach (var b in disabledButtonsDio)
+            b.SetActive(false);
+    }
+
+    public void UnlockAfterDio()
+    {
+        foreach (var b in disabledButtonsDio)
+            b.SetActive(true);
+    }
+
 }
