@@ -46,6 +46,10 @@ public class BossManager : MonoBehaviour
     public bool IsBossActive => bossActive;
     public UIFlipController uiFlipController;
 
+    [Header("Points UI")]
+    public Image pointsIcon;
+    Sprite originalPointsIcon;
+
     void Start()
     {
         previousMusic = musicSource.clip;
@@ -117,6 +121,12 @@ public class BossManager : MonoBehaviour
         clickerImage.sprite = boss.bossSprite;
         clickerImage.rectTransform.sizeDelta = originalClickerSize2d * 3f;
 
+        originalPointsIcon = pointsIcon.sprite;
+        if (boss.drainPointsOnStart)
+        {
+            ApplyPointDrainBoss(boss);
+        }
+
         previousMusic = musicSource.clip;
         musicSource.clip = boss.bossMusic;
         musicSource.loop = true;
@@ -124,6 +134,27 @@ public class BossManager : MonoBehaviour
 
         bossBar.SetProgress(1f);
     }
+
+    void ApplyPointDrainBoss(BossData boss)
+    {
+        // Change icon
+        if (boss.pointsIconOverride != null)
+            pointsIcon.sprite = boss.pointsIconOverride;
+
+        // Drain points safely
+        int drainAmount = Random.Range(
+            boss.minPointDrain,
+            boss.maxPointDrain + 1
+        );
+
+        clickerManager.points -= drainAmount;
+
+        if (clickerManager.points < 0)
+            clickerManager.points = 0;
+
+        clickerManager.UpdatePointsText();
+    }
+
 
     void DamageBoss(float damage)
     {
@@ -153,6 +184,8 @@ public class BossManager : MonoBehaviour
             bossObjectiveText.gameObject.SetActive(false);
         }
 
+        RestorePointDrainBoss();
+
         bossHealth = 0f;
         bossMaxHealth = 0f;
 
@@ -180,6 +213,12 @@ public class BossManager : MonoBehaviour
     public void HideBossObjective()
     {
         bossObjectiveText.gameObject.SetActive(false);
+    }
+
+    void RestorePointDrainBoss()
+    {
+        if (pointsIcon != null && originalPointsIcon != null)
+            pointsIcon.sprite = originalPointsIcon;
     }
 
 

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
+  m_Name: boss_nigga
+  m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossName: Nigga
+  bossSprite: {fileID: 2685918105015722819, guid: 13d4950de76b3dc42969d9968ebce787, type: 3}
+  bossMusic: {fileID: 8300000, guid: cbe854d6df5808c458c06a1f9e13ffdf, type: 3}
+  flipsUI: 0
+  drainPointsOnStart: 1
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: -8988830866167257814, guid: 5c2f50ced902ab1469bf98f86f5b9030, type: 3}
+  baseHealth: 100
+  healthMultiplier: 1.2

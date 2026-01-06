@@ -8484,12 +8484,12 @@ MonoBehaviour:
   originalMusic: {fileID: 8300000, guid: d2c7c75242a993a4c944aa468798cfce, type: 3}
   bosses:
   - {fileID: 11400000, guid: d320d9a33dcbecc4ab8b56ac59d6a1e0, type: 2}
-  - {fileID: 11400000, guid: 778b114d0c674d5498bb11a0037b0fd2, type: 2}
-  - {fileID: 11400000, guid: 1008e37092504c44ea88c8db0c1a1b7c, type: 2}
+  - {fileID: 11400000, guid: 79e9cde846cedb845b7c98ffa97da729, type: 2}
   bossRewardBase: 1000
   rewardMultiplier: 1.5
   customizeManager: {fileID: 768663199}
   uiFlipController: {fileID: 1848800898}
+  pointsIcon: {fileID: 1738954479}
 --- !u!1 &1738954477
 GameObject:
   m_ObjectHideFlags: 0
