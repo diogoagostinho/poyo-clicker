@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameLockManager : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class GameLockManager : MonoBehaviour
 
     public GameObject[] disabledButtons;
     public GameObject[] disabledButtonsDio;
+
+    public Button[] dioButtons;
 
     void Awake()
     {
@@ -26,14 +29,14 @@ public class GameLockManager : MonoBehaviour
 
     public void LockForDio()
     {
-        foreach (var b in disabledButtonsDio)
-            b.SetActive(false);
+        foreach (var b in dioButtons)
+            b.interactable = false;
     }
 
     public void UnlockAfterDio()
     {
-        foreach (var b in disabledButtonsDio)
-            b.SetActive(true);
+        foreach (var b in dioButtons)
+            b.interactable = true;
     }
 
 }
