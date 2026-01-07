@@ -47,6 +47,8 @@ public class PrestigeManager : MonoBehaviour
         prestigeCount++;
         currentPrestigeCost *= 2;
 
+        TaskProgressManager.Instance.AddPrestige();
+
         // Reset click power + level up cost
         clickerManager.clickPower = 1;
         clickerManager.levelUpCost = 10;
@@ -63,4 +65,13 @@ public class PrestigeManager : MonoBehaviour
 
         PrestigeVideoPlayer.Instance.PlayPrestigeVideo();
     }
+
+    public void ResetPrestigeData()
+    {
+        prestigeCount = 0;
+
+        PlayerPrefs.SetInt("prestigeCount", 0);
+        PlayerPrefs.Save();
+    }
+
 }

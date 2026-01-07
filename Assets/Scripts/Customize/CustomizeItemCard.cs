@@ -44,10 +44,14 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (manager.bossManager != null && manager.bossManager.IsBossActive)
-            return;
+        // Clicked:
+        if (data.unlockType != UnlockType.NormalPurchase &&
+            !manager.MeetsTaskRequirement(data))
+        {
+            return; // still locked by task
+        }
 
-        if (!manager.TryBuy(data))
+        if (!manager.TryBuy(data) && data.unlockType == UnlockType.NormalPurchase)
             return;
 
         manager.Select(data);
@@ -55,20 +59,39 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
 
     public void UpdateUI()
     {
-        if (!manager.IsUnlocked(data))
+        bool unlocked = manager.IsUnlocked(data);
+        bool selected = manager.IsSelected(data);
+
+        if (!unlocked)
         {
-            background.color = lockedColor;
-            costText.text = data.cost.ToString();
+            bool unlockedNormally = manager.IsUnlocked(data);
+            bool unlockedByTask = manager.MeetsTaskRequirement(data);
+
+            if (!unlockedNormally && !unlockedByTask)
+            {
+                background.color = lockedColor;
+
+                if (data.unlockType == UnlockType.NormalPurchase)
+                    costText.text = data.cost.ToString();
+                else
+                    costText.text = data.customUnlockText; // e.g. "Prestige 1x"
+
+                return;
+            }
         }
-        else if (manager.IsSelected(data))
+        else if (selected)
         {
             background.color = selectedColor;
-            costText.text = "Selected";
+            costText.text = "Selecionado";
         }
         else
         {
             background.color = unlockedColor;
-            costText.text = "Unlocked";
+
+            if (data.unlockType == UnlockType.NormalPurchase)
+                costText.text = "Desbloqueado";
+            else
+                costText.text = "Desbloqueado";
         }
     }
 }

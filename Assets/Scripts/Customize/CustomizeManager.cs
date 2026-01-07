@@ -60,7 +60,23 @@ public class CustomizeManager : MonoBehaviour
 
     public bool IsUnlocked(CustomizeItemData item)
     {
-        return unlocked.Contains(item.itemId);
+        // Default items always unlocked
+        if (item.isDefault)
+            return true;
+
+        // Already unlocked normally
+        if (unlocked.Contains(item.itemId))
+            return true;
+
+        // Task-unlocked?
+        if (item.unlockType != UnlockType.NormalPurchase &&
+            MeetsTaskRequirement(item))
+        {
+            unlocked.Add(item.itemId);
+            return true;
+        }
+
+        return false;
     }
 
     public bool IsSelected(CustomizeItemData item)
@@ -74,14 +90,22 @@ public class CustomizeManager : MonoBehaviour
         if (bossManager != null && bossManager.IsBossActive)
             return false;
 
-        if (IsUnlocked(item)) return true;
+        // Task items cannot be bought
+        if (item.unlockType != UnlockType.NormalPurchase)
+            return false;
 
+        // Already unlocked
+        if (IsUnlocked(item))
+            return true;
+
+        // Not enough points
         if (clickerManager.points < item.cost)
             return false;
 
         clickerManager.points -= item.cost;
         unlocked.Add(item.itemId);
         clickerManager.UpdatePointsText();
+
         return true;
     }
 
@@ -167,6 +191,52 @@ public class CustomizeManager : MonoBehaviour
                 ReapplyCurrentMusic();
                 break;
         }
+    }
+
+    // ---------------------- TASK CHECKS ----------------------
+
+    public bool MeetsTaskRequirement(CustomizeItemData item)
+    {
+        switch (item.unlockType)
+        {
+            case UnlockType.PrestigeRequirement:
+                return TaskProgressManager.Instance.prestigeCount >= item.requiredPrestigeCount;
+
+            case UnlockType.BossRequirement:
+                return TaskProgressManager.Instance.GetBossDefeatCount(item.requiredBossID) > 0;
+
+            default:
+                return false;
+        }
+    }
+
+    public string GetRequirementText(CustomizeItemData item)
+    {
+        if (!string.IsNullOrEmpty(item.customUnlockText))
+            return item.customUnlockText;
+
+        switch (item.unlockType)
+        {
+            case UnlockType.PrestigeRequirement:
+                return $"Ativa o Killer Bean {item.requiredPrestigeCount}x";
+
+            case UnlockType.BossRequirement:
+                return $"Derrota {item.requiredBossID}";
+
+            default:
+                return item.cost.ToString();
+        }
+    }
+
+    public void ResetAllCustomizeData()
+    {
+        unlocked.Clear();
+        selected.Clear();
+
+        InitializeDefaults();    // Reapply default skins/background/music
+        RefreshType(CustomizeItemType.Skin);
+        RefreshType(CustomizeItemType.Background);
+        RefreshType(CustomizeItemType.Music);
     }
 
 

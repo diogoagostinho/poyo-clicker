@@ -7,6 +7,7 @@ public class CustomizeItemData : ScriptableObject
     public string itemId;
     public CustomizeItemType itemType;
     public bool isDefault;
+    public UnlockType unlockType = UnlockType.NormalPurchase;
 
     [Header("UI")]
     public string itemName;
@@ -19,4 +20,9 @@ public class CustomizeItemData : ScriptableObject
     public Sprite skinSprite;
     public Sprite backgroundSprite;
     public AudioClip musicClip;
+
+    [Header("Custom Task")]
+    public int requiredPrestigeCount;     
+    public string requiredBossID;         
+    public string customUnlockText;      
 }

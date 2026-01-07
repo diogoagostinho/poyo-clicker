@@ -47,4 +47,13 @@ public class IdleUpgrade : MonoBehaviour
         return level + PrestigeManager.Instance.prestigeCount;
     }
 
+    public void ResetUpgrade()
+    {
+        level = 0;
+        cost = 100;
+
+        if (tooltip != null)
+            tooltip.RefreshTooltip();
+    }
+
 }

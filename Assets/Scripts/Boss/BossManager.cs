@@ -261,6 +261,11 @@ public class BossManager : MonoBehaviour
 
     void DefeatBoss()
     {
+        if (currentBossData != null && !string.IsNullOrEmpty(currentBossData.bossName))
+        {
+            TaskProgressManager.Instance.MarkBossDefeated(currentBossData.bossName);
+        }
+
         bossActive = false;
 
         uiFlipController.ResetUI();

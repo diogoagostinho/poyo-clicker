@@ -4,3 +4,10 @@ public enum CustomizeItemType
     Background,
     Music
 }
+
+public enum UnlockType
+{
+    NormalPurchase,   // unlock by points
+    PrestigeRequirement,
+    BossRequirement
+}
