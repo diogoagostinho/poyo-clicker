@@ -69,15 +69,16 @@ public class BossManager : MonoBehaviour
     // CALLED BY CLICKER MANAGER
     public void AddPoints(float amount)
     {
+        // STOP ALL POINTS & IDLE DURING DIO
+        if (isDioActive)
+            return;
+
         // Points are ALWAYS gained
         clickerManager.points += Mathf.RoundToInt(amount);
         clickerManager.UpdatePointsText();
 
         if (bossActive)
         {
-           /* if (isDioActive && amount != clickerManager.clickPower)
-                return;*/
-
             DamageBoss(amount);
         }
         else
@@ -111,6 +112,8 @@ public class BossManager : MonoBehaviour
     {
         bossActive = true;
         chargeProgress = 1f;
+
+        previousMusic = musicSource.clip;
 
         BossData boss = bosses[Random.Range(0, bosses.Count)];
         currentBossName = boss.bossName;
@@ -154,8 +157,7 @@ public class BossManager : MonoBehaviour
         {
             ApplyPointDrainBoss(boss);
         }
-
-        previousMusic = musicSource.clip;
+        
         if (boss.isDio && boss.spawnSfx != null)
         {
             StartCoroutine(PlayDioIntro(boss));
@@ -179,6 +181,7 @@ public class BossManager : MonoBehaviour
 
         yield return new WaitForSeconds(boss.spawnSfx.length);
 
+        musicSource.Stop();
         musicSource.clip = boss.bossMusic;
         musicSource.loop = true;
         musicSource.Play();
@@ -206,7 +209,7 @@ public class BossManager : MonoBehaviour
     }
 
 
-    void DamageBoss(float damage)
+    public void DamageBoss(float damage)
     {
         bossHealth -= damage;
 
@@ -242,9 +245,6 @@ public class BossManager : MonoBehaviour
         {
             bossObjectiveText.text = $"Derrota {currentBossData.secondPhaseName}";
         }
-
-        // IMPORTANT: Do NOT touch music
-        // Music continues naturally
 
         bossBar.SetProgress(1f);
     }
@@ -316,7 +316,6 @@ public class BossManager : MonoBehaviour
         if (pointsIcon != null && originalPointsIcon != null)
             pointsIcon.sprite = originalPointsIcon;
     }
-
 
     public void ResetBossProgress()
     {

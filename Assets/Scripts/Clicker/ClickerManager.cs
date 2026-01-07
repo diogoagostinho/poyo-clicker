@@ -38,6 +38,9 @@ public class ClickerManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
 
+            if (bossManager.IsDioActive())
+                continue;
+
             int idleIncome = idleUpgrade.GetPointsPerSecond();
             if (idleIncome > 0)
             {
@@ -66,6 +69,17 @@ public class ClickerManager : MonoBehaviour
 
     public void GainPoints(int amount)
     {
+        if (bossManager.IsDioActive())
+        {
+            // Only clicks should deal damage, NOT idle
+            if (amount == clickPower)
+            {
+                bossManager.DamageBoss(amount);
+            }
+
+            return; // Do NOT add points and do NOT idle charge
+        }
+
         if (GogetaBossManager.Instance != null && GogetaBossManager.Instance.IsActive)
         {
             GogetaBossManager.Instance.Damage(amount);
