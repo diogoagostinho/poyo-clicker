@@ -15,6 +15,7 @@ MonoBehaviour:
   itemId: 13
   itemType: 0
   isDefault: 0
+  unlockType: 0
   itemName: Fat Nigga
   description: Poyo vai ao KFC
   icon: {fileID: -9136991118782378354, guid: 419988c4c0bb56a469f8a20ff0876de9, type: 3}
@@ -22,3 +23,7 @@ MonoBehaviour:
   skinSprite: {fileID: -9136991118782378354, guid: 419988c4c0bb56a469f8a20ff0876de9, type: 3}
   backgroundSprite: {fileID: 0}
   musicClip: {fileID: 0}
+  requiredPrestigeCount: 0
+  requiredBossID: 
+  customUnlockText: 
+  customClickSound: {fileID: 8300000, guid: 492072e421f6eca429537f2e73e6fbeb, type: 3}
