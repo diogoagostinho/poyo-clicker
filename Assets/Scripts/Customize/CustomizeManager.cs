@@ -69,11 +69,13 @@ public class CustomizeManager : MonoBehaviour
             return true;
 
         // Task-unlocked?
-        if (item.unlockType != UnlockType.NormalPurchase &&
-            MeetsTaskRequirement(item))
+        if (item.unlockType != UnlockType.NormalPurchase)
         {
-            unlocked.Add(item.itemId);
-            return true;
+            if (MeetsTaskRequirement(item))
+            {
+                unlocked.Add(item.itemId);
+                return true;
+            }
         }
 
         return false;
@@ -214,6 +216,9 @@ public class CustomizeManager : MonoBehaviour
 
             case UnlockType.BossRequirement:
                 return TaskProgressManager.Instance.GetBossDefeatCount(item.requiredBossID) > 0;
+
+            case UnlockType.LinkedUnlock:
+                return unlocked.Contains(item.requiredItemID);
 
             default:
                 return false;

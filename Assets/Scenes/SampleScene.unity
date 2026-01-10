@@ -3589,6 +3589,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d02dcd5d99ea6e438bb83560d002a47, type: 2}
   - {fileID: 11400000, guid: 63ed05bc6286ae0499f60f68dbd41c4b, type: 2}
   - {fileID: 11400000, guid: 39386492b75571944aa0be4323573e15, type: 2}
+  - {fileID: 11400000, guid: 7f8d641284d3c9d4d83beddb96ff8e60, type: 2}
+  - {fileID: 11400000, guid: 80eddcc35a557da4f9440c6b6ee8cae7, type: 2}
   clickerManager: {fileID: 826222765}
   clickerImage: {fileID: 1447781791}
   backgroundImage: {fileID: 1799486742}

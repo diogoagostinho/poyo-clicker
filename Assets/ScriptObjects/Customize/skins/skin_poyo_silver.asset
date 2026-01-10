@@ -18,12 +18,13 @@ MonoBehaviour:
   unlockType: 0
   itemName: Silver Poyo
   description: Medalha de prata
-  icon: {fileID: -4019199491607732794, guid: 97fdc8f37f4b3c64bb6154b8a0c94cc2, type: 3}
+  icon: {fileID: -3039479599837283608, guid: 5215416a4cfa93e40a13cd9c0b014fd8, type: 3}
   cost: 1000000
   skinSprite: {fileID: -3039479599837283608, guid: 5215416a4cfa93e40a13cd9c0b014fd8, type: 3}
   backgroundSprite: {fileID: 0}
   musicClip: {fileID: 0}
   requiredPrestigeCount: 0
   requiredBossID: 
+  requiredItemID: 
   customUnlockText: 
   customClickSound: {fileID: 0}

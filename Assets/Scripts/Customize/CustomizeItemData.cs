@@ -4,7 +4,8 @@ public enum UnlockType
 {
     NormalPurchase,
     PrestigeRequirement,
-    BossRequirement
+    BossRequirement,
+    LinkedUnlock
 }
 
 [CreateAssetMenu(menuName = "Customize/Item")]
@@ -30,7 +31,8 @@ public class CustomizeItemData : ScriptableObject
 
     [Header("Custom Task")]
     public int requiredPrestigeCount;     
-    public string requiredBossID;         
+    public string requiredBossID;
+    public string requiredItemID;
     public string customUnlockText;
     public AudioClip customClickSound;
 
