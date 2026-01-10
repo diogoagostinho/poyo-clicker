@@ -1570,6 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02134fbc2ff320a42b028320d26fb6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GogetaBossManager
+  bossId: GOGETA
   gogetaSprite: {fileID: 6634287534890721282, guid: 32cc88aacb4dac247976ce2e32e777e6, type: 3}
   gogetaMusic: {fileID: 8300000, guid: 1243328599cf5ed4bb5e754f82024cf2, type: 3}
   maxHealth: 10000
@@ -3580,6 +3581,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af60df5833a52f145b25e0bdd125362f, type: 2}
   - {fileID: 11400000, guid: c54b7c8ad894aee4da302964bd7872ed, type: 2}
   - {fileID: 11400000, guid: c2fd280abcf0c9248acffca3da5ce5d4, type: 2}
+  - {fileID: 11400000, guid: 9b1c1410cce8ba344bf8744f8471e27a, type: 2}
+  - {fileID: 11400000, guid: ba88617180762604fa58dbdefe309deb, type: 2}
+  - {fileID: 11400000, guid: c8ef16436fe0cb8479a43263e454084d, type: 2}
+  - {fileID: 11400000, guid: d79bbb2c126aa5642b2bb00d5efb58cb, type: 2}
+  - {fileID: 11400000, guid: a0c1002d7ba8e8042b971d24a8319756, type: 2}
+  - {fileID: 11400000, guid: 7d02dcd5d99ea6e438bb83560d002a47, type: 2}
+  - {fileID: 11400000, guid: 63ed05bc6286ae0499f60f68dbd41c4b, type: 2}
+  - {fileID: 11400000, guid: 39386492b75571944aa0be4323573e15, type: 2}
   clickerManager: {fileID: 826222765}
   clickerImage: {fileID: 1447781791}
   backgroundImage: {fileID: 1799486742}
@@ -4783,6 +4792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1005026651}
   - component: {fileID: 1005026650}
+  - component: {fileID: 1005026652}
   m_Layer: 0
   m_Name: ClickSound
   m_TagString: Untagged
@@ -4902,6 +4912,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 969405639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1005026652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005026649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223a71c54a991934398bdd1ebb89f9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickSoundManager
+  clickSource: {fileID: 1005026650}
+  defaultClickSound: {fileID: 8300000, guid: 1a6ca8e1e912ee6468eceb19e924ac2a, type: 3}
 --- !u!1 &1024672696
 GameObject:
   m_ObjectHideFlags: 0
@@ -8864,7 +8888,7 @@ MonoBehaviour:
   originalMusic: {fileID: 8300000, guid: d2c7c75242a993a4c944aa468798cfce, type: 3}
   bosses:
   - {fileID: 11400000, guid: d320d9a33dcbecc4ab8b56ac59d6a1e0, type: 2}
-  - {fileID: 11400000, guid: a0516742f38837445b2b19b5bc79f688, type: 2}
+  - {fileID: 11400000, guid: 734d296efef694d47a0f6fe1c9b59df8, type: 2}
   - {fileID: 11400000, guid: 269f850c06b803141af692b906bb5194, type: 2}
   bossRewardBase: 1000
   rewardMultiplier: 1.5

@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public enum UnlockType
+{
+    NormalPurchase,
+    PrestigeRequirement,
+    BossRequirement
+}
+
 [CreateAssetMenu(menuName = "Customize/Item")]
 public class CustomizeItemData : ScriptableObject
 {
@@ -24,5 +31,7 @@ public class CustomizeItemData : ScriptableObject
     [Header("Custom Task")]
     public int requiredPrestigeCount;     
     public string requiredBossID;         
-    public string customUnlockText;      
+    public string customUnlockText;
+    public AudioClip customClickSound;
+
 }

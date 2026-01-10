@@ -126,8 +126,15 @@ public class CustomizeManager : MonoBehaviour
         switch (item.itemType)
         {
             case CustomizeItemType.Skin:
+                // Change the clicker sprite
                 if (item.skinSprite != null)
                     clickerImage.sprite = item.skinSprite;
+
+                // Apply click sound override (NEW)
+                if (item.customClickSound != null)
+                    ClickSoundManager.Instance.SetClickSound(item.customClickSound);
+                else
+                    ClickSoundManager.Instance.ResetToDefault();
                 break;
 
             case CustomizeItemType.Background:
@@ -152,7 +159,10 @@ public class CustomizeManager : MonoBehaviour
 
         CustomizeItemData skin = allItems.Find(i => i.itemId == skinId);
         if (skin != null)
+        {
             ApplyItem(skin);
+        }
+           
     }
 
     public void ReapplyCurrentBackground()

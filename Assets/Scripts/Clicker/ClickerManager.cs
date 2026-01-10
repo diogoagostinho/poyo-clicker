@@ -105,6 +105,10 @@ public class ClickerManager : MonoBehaviour
         {
             GainPoints(100000);
         }
+        if(Keyboard.current != null && Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            PrestigeManager.Instance.ExecutePrestige();
+        }
     }
 
     public void LevelUpClick()

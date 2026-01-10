@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/Boss Data")]
 public class BossData : ScriptableObject
 {
+    public string bossID;
     public string bossName;
     public Sprite bossSprite;
     public AudioClip bossMusic;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_abysswatchers
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: ABYSSWATCHER
   bossName: Abyss Watcher
   bossSprite: {fileID: -786198309169012946, guid: fa4c22e31a10df84e965b1f432ead8fd, type: 3}
   bossMusic: {fileID: 8300000, guid: 189569c82d789924e88a937619740b4d, type: 3}
@@ -24,5 +25,8 @@ MonoBehaviour:
   secondPhaseName: Abyss Watchers
   secondPhaseSprite: {fileID: -3348915419111940832, guid: 994df219f3a72384ab03a2d6967d2b1f, type: 3}
   secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 300
   healthMultiplier: 1.5

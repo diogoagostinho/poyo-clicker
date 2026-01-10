@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_stipan
   m_EditorClassIdentifier: Assembly-CSharp::BossData
-  bossName: 'Stipan: The True Steve'
+  bossID: STIPAN
+  bossName: 'Steven: The True Steve'
   bossSprite: {fileID: 8479062905540934764, guid: a17492da0a5540f47a91579745439f25, type: 3}
   bossMusic: {fileID: 8300000, guid: 1292e4d444e43a5409cdee19c6dfb1f8, type: 3}
+  flipsUI: 0
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 100
   healthMultiplier: 1.2

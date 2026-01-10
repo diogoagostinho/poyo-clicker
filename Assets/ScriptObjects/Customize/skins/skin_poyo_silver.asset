@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
+  m_Name: skin_poyo_silver
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 22
+  itemType: 0
+  isDefault: 0
+  unlockType: 0
+  itemName: Silver Poyo
+  description: Medalha de prata
+  icon: {fileID: -4019199491607732794, guid: 97fdc8f37f4b3c64bb6154b8a0c94cc2, type: 3}
+  cost: 1000000
+  skinSprite: {fileID: -3039479599837283608, guid: 5215416a4cfa93e40a13cd9c0b014fd8, type: 3}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 0}
+  requiredPrestigeCount: 0
+  requiredBossID: 
+  customUnlockText: 
+  customClickSound: {fileID: 0}

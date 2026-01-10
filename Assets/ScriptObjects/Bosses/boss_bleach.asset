@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_bleach
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: BLEACH
   bossName: Bleach
   bossSprite: {fileID: 4965845079849821540, guid: f399b9b8fee8c3847a7549d0b259a80a, type: 3}
   bossMusic: {fileID: 8300000, guid: b28fb40a53d4e88478460ddb3e173a79, type: 3}
+  flipsUI: 0
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 100
   healthMultiplier: 1.2

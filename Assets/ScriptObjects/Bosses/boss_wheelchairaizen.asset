@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_wheelchairaizen
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: WHEELCHAIRAIZEN
   bossName: Wheelchair Aizen
   bossSprite: {fileID: 156287589907210053, guid: ef8d9cec422dad743b2c77c47f4abc39, type: 3}
   bossMusic: {fileID: 8300000, guid: b2f4ea4109a31e14b93cfca3c22072c4, type: 3}
+  flipsUI: 0
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 100
   healthMultiplier: 1.2

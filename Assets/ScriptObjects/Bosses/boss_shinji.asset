@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_shinji
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: SHINJI
   bossName: Shinji
   bossSprite: {fileID: -1400825204763850369, guid: 668609a069370cc4c89a5506539b1039, type: 3}
   bossMusic: {fileID: 8300000, guid: 5901f874fc7b8564eb466d6c5ca6e75f, type: 3}
   flipsUI: 1
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 300
   healthMultiplier: 1.5

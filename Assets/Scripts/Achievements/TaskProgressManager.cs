@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class TaskProgressManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class TaskProgressManager : MonoBehaviour
 
     // BossID -> times defeated
     private Dictionary<string, int> bossDefeatCount = new Dictionary<string, int>();
+    private Dictionary<string, int> specificBossKills = new Dictionary<string, int>();
+
 
     void Awake()
     {
@@ -94,4 +97,23 @@ public class TaskProgressManager : MonoBehaviour
 
         Save();
     }
+
+    public void AddSpecificBossKill(string bossID)
+    {
+        if (!specificBossKills.ContainsKey(bossID))
+            specificBossKills[bossID] = 0;
+
+        specificBossKills[bossID]++;
+        Save();
+    }
+
+    public int GetSpecificBossKillCount(string bossID)
+    {
+        if (specificBossKills.TryGetValue(bossID, out int count))
+            return count;
+
+        return 0;
+    }
+
+
 }

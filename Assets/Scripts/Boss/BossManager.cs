@@ -118,6 +118,8 @@ public class BossManager : MonoBehaviour
         BossData boss = bosses[Random.Range(0, bosses.Count)];
         currentBossName = boss.bossName;
 
+        Debug.Log("ID entity: " + boss.GetEntityId());
+
         currentBossData = boss;
         isSecondPhase = false;
         isDioActive = boss.isDio;
@@ -263,7 +265,7 @@ public class BossManager : MonoBehaviour
     {
         if (currentBossData != null && !string.IsNullOrEmpty(currentBossData.bossName))
         {
-            TaskProgressManager.Instance.MarkBossDefeated(currentBossData.bossName);
+            TaskProgressManager.Instance.MarkBossDefeated(currentBossData.bossID);
         }
 
         bossActive = false;

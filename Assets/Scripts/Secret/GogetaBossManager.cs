@@ -7,6 +7,7 @@ public class GogetaBossManager : MonoBehaviour
     public static GogetaBossManager Instance;
 
     [Header("Boss")]
+    public string bossId = "GOGETA";
     public Sprite gogetaSprite;
     public AudioClip gogetaMusic;
     public float maxHealth = 5000f;
@@ -77,6 +78,8 @@ public class GogetaBossManager : MonoBehaviour
 
     void EndFight()
     {
+        TaskProgressManager.Instance.MarkBossDefeated("GOGETA");
+
         IsActive = false;
 
         clickerImage.sprite = previousSprite;

@@ -74,7 +74,7 @@ public class CustomizeItemCard : MonoBehaviour, IPointerClickHandler
                 if (data.unlockType == UnlockType.NormalPurchase)
                     costText.text = data.cost.ToString();
                 else
-                    costText.text = data.customUnlockText; // e.g. "Prestige 1x"
+                    costText.text = manager.GetRequirementText(data);
 
                 return;
             }

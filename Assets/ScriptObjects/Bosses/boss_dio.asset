@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_dio
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: DIO
   bossName: Dio
   bossSprite: {fileID: -7361430303236349603, guid: 28b79be396a3fc64380e8bf3e00ca06f, type: 3}
   bossMusic: {fileID: 8300000, guid: 2c59416fd9c9d6644b75ee2110567faa, type: 3}

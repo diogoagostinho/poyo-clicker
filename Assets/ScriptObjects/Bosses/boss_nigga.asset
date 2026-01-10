@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_nigga
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: NIGGA
   bossName: Nigga
   bossSprite: {fileID: 2685918105015722819, guid: 13d4950de76b3dc42969d9968ebce787, type: 3}
   bossMusic: {fileID: 8300000, guid: cbe854d6df5808c458c06a1f9e13ffdf, type: 3}
@@ -20,5 +21,12 @@ MonoBehaviour:
   minPointDrain: 100
   maxPointDrain: 30000
   pointsIconOverride: {fileID: -8988830866167257814, guid: 5c2f50ced902ab1469bf98f86f5b9030, type: 3}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 100
   healthMultiplier: 1.2

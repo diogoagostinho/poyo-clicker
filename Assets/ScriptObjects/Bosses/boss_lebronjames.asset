@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_lebronjames
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: LEBRONJAMES
   bossName: Lebron James
   bossSprite: {fileID: -6363831530704855231, guid: e1f4e76903e98aa40acbc7b3c9f54f8d, type: 3}
   bossMusic: {fileID: 8300000, guid: 56653ea4213244644a9ee41384f51d48, type: 3}
   flipsUI: 0
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 100
   healthMultiplier: 1.2

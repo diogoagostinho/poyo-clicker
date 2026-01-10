@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6c1a287ebf354ba98cf01ccbaf440, type: 3}
   m_Name: boss_steve
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  bossID: MINECRAFTSTEVE
   bossName: Minecraft Steve
   bossSprite: {fileID: -6701797809383880051, guid: 9091a38b9c4305944a51584c38c9cc7a, type: 3}
   bossMusic: {fileID: 8300000, guid: 6532ae095786847429967c961a60eb93, type: 3}
+  flipsUI: 0
+  drainPointsOnStart: 0
+  minPointDrain: 100
+  maxPointDrain: 30000
+  pointsIconOverride: {fileID: 0}
+  hasSecondPhase: 0
+  secondPhaseName: 
+  secondPhaseSprite: {fileID: 0}
+  secondPhaseHealthMultiplier: 3
+  isDio: 0
+  spawnSfx: {fileID: 0}
+  dioGrayscaleMaterial: {fileID: 0}
   baseHealth: 100
   healthMultiplier: 1.2
