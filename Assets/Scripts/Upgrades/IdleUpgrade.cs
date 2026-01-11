@@ -29,6 +29,9 @@ public class IdleUpgrade : MonoBehaviour
             tooltip.RefreshTooltip();
 
         OnUpgradeChanged?.Invoke();
+
+        SaveManager.Instance.data.upgradeLevel = level;
+        SaveManager.Instance.Save();
     }
 
     public int GetPointsPerSecond()

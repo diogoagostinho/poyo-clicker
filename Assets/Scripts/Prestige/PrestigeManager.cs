@@ -64,6 +64,9 @@ public class PrestigeManager : MonoBehaviour
         DragonBallManager.Instance.ResetForPrestige();
 
         PrestigeVideoPlayer.Instance.PlayPrestigeVideo();
+
+        SaveManager.Instance.data.prestigeCount = prestigeCount;
+        SaveManager.Instance.Save();
     }
 
     public void ResetPrestigeData()

@@ -26,6 +26,23 @@ public class CustomizeManager : MonoBehaviour
     void Start()
     {
         InitializeDefaults();
+
+        var save = SaveManager.Instance.data;
+
+        foreach (string id in save.unlockedItems)
+            unlocked.Add(id);
+
+        foreach (var pair in save.selectedItems)
+        {
+            CustomizeItemType type = (CustomizeItemType)System.Enum.Parse(
+                typeof(CustomizeItemType), pair.Key);
+
+            selected[type] = pair.Value;
+
+            var item = allItems.Find(i => i.itemId == pair.Value);
+            if (item != null)
+                ApplyItem(item);
+        }
     }
 
     void InitializeDefaults()
@@ -108,6 +125,9 @@ public class CustomizeManager : MonoBehaviour
         unlocked.Add(item.itemId);
         clickerManager.UpdatePointsText();
 
+        SaveManager.Instance.data.unlockedItems.Add(item.itemId);
+        SaveManager.Instance.Save();
+
         return true;
     }
 
@@ -119,6 +139,9 @@ public class CustomizeManager : MonoBehaviour
         selected[item.itemType] = item.itemId;
         ApplyItem(item);
         RefreshType(item.itemType);
+
+        SaveManager.Instance.data.selectedItems[item.itemType.ToString()] = item.itemId;
+        SaveManager.Instance.Save();
     }
 
     // --------- APPLY ---------

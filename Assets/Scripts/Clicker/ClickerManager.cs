@@ -60,6 +60,9 @@ public class ClickerManager : MonoBehaviour
 
         clickSound.pitch = Random.Range(0.75f, 1.25f);
         clickSound.Play();
+
+        SaveManager.Instance.data.points = points;
+        SaveManager.Instance.Save();
     }
 
     public void UpdatePointsText()
@@ -125,6 +128,9 @@ public class ClickerManager : MonoBehaviour
         // Refresh tooltip if it's visible
         if (levelUpTooltip != null)
             levelUpTooltip.RefreshTooltip();
+
+        SaveManager.Instance.data.levelUpLevel = clickPower;
+        SaveManager.Instance.Save();
     }
 
     public void ResetProgress()

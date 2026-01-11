@@ -263,17 +263,29 @@ public class BossManager : MonoBehaviour
 
     void DefeatBoss()
     {
-        if (currentBossData != null && !string.IsNullOrEmpty(currentBossData.bossName))
+        // ------------------ SAVE BEFORE CLEARING DATA ------------------
+        if (currentBossData != null)
         {
-            TaskProgressManager.Instance.MarkBossDefeated(currentBossData.bossID);
+            // Task progress unlocks
+            TaskProgressManager.Instance?.MarkBossDefeated(currentBossData.bossID);
+
+            // Save defeat count
+            var dict = SaveManager.Instance.data.bossDefeatCounts;
+
+            if (!dict.ContainsKey(currentBossData.bossID))
+                dict[currentBossData.bossID] = 0;
+
+            dict[currentBossData.bossID]++;
+
+            SaveManager.Instance.Save();
         }
 
-        bossActive = false;
+        // ------------------ NORMAL CLEANUP ------------------
 
+        bossActive = false;
         uiFlipController.ResetUI();
 
         isSecondPhase = false;
-        currentBossData = null;
 
         if (isDioActive)
         {
@@ -283,9 +295,7 @@ public class BossManager : MonoBehaviour
         }
 
         if (bossObjectiveText != null)
-        {
             bossObjectiveText.gameObject.SetActive(false);
-        }
 
         RestorePointDrainBoss();
 
@@ -298,20 +308,23 @@ public class BossManager : MonoBehaviour
         customizeManager.ReapplyCurrentSkin();
         clickerImage.rectTransform.sizeDelta = originalClickerSize2d;
 
-
         musicSource.clip = previousMusic != null ? previousMusic : originalMusic;
         musicSource.loop = true;
         musicSource.Play();
 
+        // Reward
         int reward = Mathf.RoundToInt(
             bossRewardBase * Mathf.Pow(rewardMultiplier, bossLevel)
         );
-
         clickerManager.points += reward;
         clickerManager.UpdatePointsText();
 
         bossLevel++;
+
+        // ------------------ CLEAR AT THE VERY END ------------------
+        currentBossData = null;
     }
+
 
     public void HideBossObjective()
     {

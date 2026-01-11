@@ -36,6 +36,18 @@ public class DragonBallManager : MonoBehaviour
     {
         bossManager = FindFirstObjectByType<BossManager>();
         StartCoroutine(SpawnRoutine());
+
+        foreach (var savedType in SaveManager.Instance.data.collectedDragonBalls)
+        {
+            DragonBallData d = allDragonBalls.Find(b => b.type == savedType);
+
+            if (d != null && !collected.ContainsKey(savedType))
+            {
+                collected.Add(savedType, d);
+                AddToUI(d);
+            }
+        }
+
     }
 
     IEnumerator SpawnRoutine()
@@ -129,6 +141,12 @@ public class DragonBallManager : MonoBehaviour
         AddToUI(data);
 
         currentSpawnedBall = null;
+
+        if (!SaveManager.Instance.data.collectedDragonBalls.Contains(data.type))
+        {
+            SaveManager.Instance.data.collectedDragonBalls.Add(data.type);
+            SaveManager.Instance.Save();
+        }
 
         if (collected.Count == 7)
             TriggerGogeta();

@@ -15,7 +15,7 @@ public class GameLockManager : MonoBehaviour
         Instance = this;
     }
 
-    public void LockForSecretBoss()
+    public void LockForSecretBoss() 
     {
         foreach (var b in disabledButtons)
             b.SetActive(false);

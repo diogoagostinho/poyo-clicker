@@ -9,35 +9,33 @@ public class VideoSettingsManager : MonoBehaviour
     public Toggle fullscreenToggle;
     public TMP_Dropdown resolutionDropdown;
 
-    // Stored resolutions (only 16:9)
     private Resolution[] filteredResolutions;
-
-    private int currentResolutionIndex = 0;
-
-    private const string KEY_FULLSCREEN = "fullscreen";
-    private const string KEY_RESOLUTION = "resolutionIndex";
+    private int savedResolutionIndex = 0;
 
     void Start()
     {
-        LoadAvailableResolutions();
+        LoadResolutions();
         LoadSettings();
+
+        // MAKE SURE EVENTS ARE CONNECTED
+        fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
+        resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
     }
 
-    // -----------------------------------------------------------
-    // LOAD RESOLUTIONS
-    // -----------------------------------------------------------
-    void LoadAvailableResolutions()
+    // ------------------------------------------------------------
+    // LOAD RESOLUTIONS (ONLY 16:9)
+    // ------------------------------------------------------------
+    void LoadResolutions()
     {
         List<Resolution> resList = new List<Resolution>();
 
-        foreach (var res in Screen.resolutions)
+        foreach (Resolution r in Screen.resolutions)
         {
-            float aspect = (float)res.width / res.height;
+            float aspect = (float)r.width / r.height;
 
-            // Only 16:9 ratios
             if (Mathf.Abs(aspect - (16f / 9f)) < 0.01f)
             {
-                resList.Add(res);
+                resList.Add(r);
             }
         }
 
@@ -49,66 +47,77 @@ public class VideoSettingsManager : MonoBehaviour
         for (int i = 0; i < filteredResolutions.Length; i++)
         {
             Resolution r = filteredResolutions[i];
-            string option = $"{r.width} x {r.height}";
-            options.Add(option);
-
-            if (r.width == Screen.currentResolution.width &&
-                r.height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
+            options.Add($"{r.width} x {r.height}");
         }
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
     }
 
-    // -----------------------------------------------------------
-    // FULLSCREEN
-    // -----------------------------------------------------------
-    public void OnToggleFullscreen(bool isFullscreen)
+    // ------------------------------------------------------------
+    // FULLSCREEN TOGGLE
+    // ------------------------------------------------------------
+    public void OnFullscreenToggle(bool isFullscreen)
     {
-        Screen.fullScreenMode = isFullscreen
-            ? FullScreenMode.FullScreenWindow
-            : FullScreenMode.Windowed;
+        // MUST call SetResolution when toggling fullscreen or Unity ignores it
+        Resolution r = filteredResolutions[savedResolutionIndex];
 
-        PlayerPrefs.SetInt(KEY_FULLSCREEN, isFullscreen ? 1 : 0);
+        Screen.SetResolution(r.width, r.height,
+            isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed);
+
+        PlayerPrefs.SetInt("fullscreen", isFullscreen ? 1 : 0);
     }
 
-    // -----------------------------------------------------------
+    // ------------------------------------------------------------
     // RESOLUTION CHANGE
-    // -----------------------------------------------------------
+    // ------------------------------------------------------------
     public void OnResolutionChanged(int index)
     {
+        savedResolutionIndex = index;
+
         Resolution r = filteredResolutions[index];
 
-        Screen.SetResolution(r.width, r.height, Screen.fullScreen);
+        // ALWAYS include fullscreen mode or Unity ignores the resolution change
+        bool full = fullscreenToggle.isOn;
 
-        PlayerPrefs.SetInt(KEY_RESOLUTION, index);
+        Screen.SetResolution(
+            r.width,
+            r.height,
+            full ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed
+        );
+
+        PlayerPrefs.SetInt("resolutionIndex", index);
+
+        SaveManager.Instance.data.resolutionIndex = index;
+        SaveManager.Instance.data.fullscreen = fullscreenToggle.isOn;
+        SaveManager.Instance.Save();
+
     }
 
-    // -----------------------------------------------------------
-    // LOAD SAVED SETTINGS
-    // -----------------------------------------------------------
+    // ------------------------------------------------------------
+    // LOAD SETTINGS
+    // ------------------------------------------------------------
     void LoadSettings()
     {
-        // Fullscreen
-        bool isFullscreen = PlayerPrefs.GetInt(KEY_FULLSCREEN, 1) == 1;
-        fullscreenToggle.isOn = isFullscreen;
+        bool fullscreen = PlayerPrefs.GetInt("fullscreen", 1) == 1;
+        fullscreenToggle.isOn = fullscreen;
 
-        Screen.fullScreenMode = isFullscreen
-            ? FullScreenMode.FullScreenWindow
-            : FullScreenMode.Windowed;
+        savedResolutionIndex = PlayerPrefs.GetInt("resolutionIndex", 0);
+        savedResolutionIndex = Mathf.Clamp(savedResolutionIndex, 0, filteredResolutions.Length - 1);
 
-        // Resolution
-        int savedIndex = PlayerPrefs.GetInt(KEY_RESOLUTION, currentResolutionIndex);
-        savedIndex = Mathf.Clamp(savedIndex, 0, filteredResolutions.Length - 1);
-
-        resolutionDropdown.value = savedIndex;
+        resolutionDropdown.value = savedResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        Resolution r = filteredResolutions[savedIndex];
-        Screen.SetResolution(r.width, r.height, Screen.fullScreen);
+        // Apply saved settings
+        Resolution r = filteredResolutions[savedResolutionIndex];
+
+        Screen.SetResolution(
+            r.width,
+            r.height,
+            fullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed
+        );
+
+        var d = SaveManager.Instance.data;
+        resolutionDropdown.value = d.resolutionIndex;
+        fullscreenToggle.isOn = d.fullscreen;
     }
 }
