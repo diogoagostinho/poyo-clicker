@@ -15,6 +15,7 @@ public class PrestigePanel : MonoBehaviour
     [Header("References")]
     public ClickerManager clickerManager;
     public PrestigeManager prestigeManager;
+    public SaveManager saveManager;
 
     void Awake()
     {

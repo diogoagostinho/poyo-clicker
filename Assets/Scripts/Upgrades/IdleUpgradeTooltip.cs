@@ -79,10 +79,8 @@ public class IdleUpgradeTooltip : MonoBehaviour,
     public void RefreshTooltip()
     {
         tooltipText.text =
-            $"{idleUpgrade.level + idleUpgrade.GetEffectivePointsPerSecond()}/s\n" +
+            $"{idleUpgrade.GetEffectivePointsPerSecond()}/s\n" +
             $"Custo: {idleUpgrade.cost}";
-
-        Debug.Log(idleUpgrade.level + idleUpgrade.GetEffectivePointsPerSecond());
     }
 
 }

@@ -1774,7 +1774,7 @@ MonoBehaviour:
   bossId: GOGETA
   gogetaSprite: {fileID: 6634287534890721282, guid: 32cc88aacb4dac247976ce2e32e777e6, type: 3}
   gogetaMusic: {fileID: 8300000, guid: 1243328599cf5ed4bb5e754f82024cf2, type: 3}
-  maxHealth: 10000
+  maxHealth: 100000
   bossBar: {fileID: 128429218}
   clickerImage: {fileID: 1447781791}
   musicSource: {fileID: 610248373}
@@ -3877,33 +3877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e4fef69ca603f4994a6765b8ed26a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeManager
-  allItems:
-  - {fileID: 11400000, guid: 993febfc7847a4848a5ae45e36ed9307, type: 2}
-  - {fileID: 11400000, guid: f76eb134c22dc67429dedefcb8fc489c, type: 2}
-  - {fileID: 11400000, guid: 9a0e5689ebfafea4e8d1ec47f246771c, type: 2}
-  - {fileID: 11400000, guid: 443c07285d3811c49af5359a284f0025, type: 2}
-  - {fileID: 11400000, guid: 202df89565d7d454e9640fa39e2069fb, type: 2}
-  - {fileID: 11400000, guid: 0dbad9d12e804804089f3237d1b4a923, type: 2}
-  - {fileID: 11400000, guid: e9430a91d6379144783ae47ab9a9baa7, type: 2}
-  - {fileID: 11400000, guid: 61b6c666d49d6614fb40703e8b95bfdc, type: 2}
-  - {fileID: 11400000, guid: 580545e1ae5b3e7449f57304434543dd, type: 2}
-  - {fileID: 11400000, guid: 9303b125511635141a4483c201ce198c, type: 2}
-  - {fileID: 11400000, guid: d923b5f317e0526448da6dd027678c00, type: 2}
-  - {fileID: 11400000, guid: 4a56a35b0649e17408561153e6b69727, type: 2}
-  - {fileID: 11400000, guid: f752dcdcf1367b040b8734e780a71b3e, type: 2}
-  - {fileID: 11400000, guid: af60df5833a52f145b25e0bdd125362f, type: 2}
-  - {fileID: 11400000, guid: c54b7c8ad894aee4da302964bd7872ed, type: 2}
-  - {fileID: 11400000, guid: c2fd280abcf0c9248acffca3da5ce5d4, type: 2}
-  - {fileID: 11400000, guid: 9b1c1410cce8ba344bf8744f8471e27a, type: 2}
-  - {fileID: 11400000, guid: ba88617180762604fa58dbdefe309deb, type: 2}
-  - {fileID: 11400000, guid: c8ef16436fe0cb8479a43263e454084d, type: 2}
-  - {fileID: 11400000, guid: d79bbb2c126aa5642b2bb00d5efb58cb, type: 2}
-  - {fileID: 11400000, guid: a0c1002d7ba8e8042b971d24a8319756, type: 2}
-  - {fileID: 11400000, guid: 7d02dcd5d99ea6e438bb83560d002a47, type: 2}
-  - {fileID: 11400000, guid: 63ed05bc6286ae0499f60f68dbd41c4b, type: 2}
-  - {fileID: 11400000, guid: 39386492b75571944aa0be4323573e15, type: 2}
-  - {fileID: 11400000, guid: 7f8d641284d3c9d4d83beddb96ff8e60, type: 2}
-  - {fileID: 11400000, guid: 80eddcc35a557da4f9440c6b6ee8cae7, type: 2}
+  allItems: []
   clickerManager: {fileID: 826222765}
   clickerImage: {fileID: 1447781791}
   backgroundImage: {fileID: 1799486742}
@@ -9194,8 +9168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragonBallManager
   dragonBallPrefab: {fileID: 4148403151067803214, guid: cbb9c2b162319cc439d2c21e2406dd28, type: 3}
   spawnArea: {fileID: 1353777169}
-  minSpawnTime: 1
-  maxSpawnTime: 3
+  minSpawnTime: 5
+  maxSpawnTime: 8
   collectedUIParent: {fileID: 595919799}
   canSpawn: 1
   allDragonBalls:
@@ -9877,7 +9851,6 @@ MonoBehaviour:
   - {fileID: 223310626}
   - {fileID: 2024206139}
   - {fileID: 111756536}
-  - {fileID: 0}
   - {fileID: 1319506742}
   dioButtons:
   - {fileID: 2142696721}
@@ -11637,6 +11610,7 @@ MonoBehaviour:
   activateButton: {fileID: 1374078745}
   clickerManager: {fileID: 826222765}
   prestigeManager: {fileID: 842776738}
+  saveManager: {fileID: 0}
 --- !u!1 &1968676187
 GameObject:
   m_ObjectHideFlags: 0
