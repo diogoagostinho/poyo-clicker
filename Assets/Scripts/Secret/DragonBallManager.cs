@@ -194,4 +194,35 @@ public class DragonBallManager : MonoBehaviour
             Destroy(child.gameObject);
     }
 
+    public void ResetDragonBalls()
+    {
+        // Clear internal list
+        collected.Clear();
+
+        // Clear UI icons
+        foreach (Transform child in collectedUIParent)
+            Destroy(child.gameObject);
+
+        // Clear save data list
+        SaveManager.Instance.data.collectedDragonBalls.Clear();
+
+        // Reset spawning
+        canSpawn = true;
+
+        // Remove any active ball in the world
+        if (currentSpawnedBall != null)
+        {
+            Destroy(currentSpawnedBall);
+            currentSpawnedBall = null;
+        }
+
+        // Restart spawn routine
+        StopAllCoroutines();
+        StartCoroutine(SpawnRoutine());
+
+        // Save changes
+        SaveManager.Instance.Save();
+
+    }
+
 }

@@ -1167,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25}
+  m_AnchoredPosition: {x: 0, y: -25.000015}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177701161
@@ -4576,7 +4576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25}
+  m_AnchoredPosition: {x: 0, y: -25.000015}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907327985
@@ -9199,8 +9199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragonBallManager
   dragonBallPrefab: {fileID: 4148403151067803214, guid: cbb9c2b162319cc439d2c21e2406dd28, type: 3}
   spawnArea: {fileID: 1353777169}
-  minSpawnTime: 5
-  maxSpawnTime: 8
+  minSpawnTime: 300
+  maxSpawnTime: 480
   collectedUIParent: {fileID: 595919799}
   canSpawn: 1
   allDragonBalls:
@@ -9390,6 +9390,7 @@ MonoBehaviour:
   idleUpgrade: {fileID: 1790968509}
   bossManager: {fileID: 1734437512}
   taskProgressManager: {fileID: 757727002}
+  dragonBallManager: {fileID: 1638179053}
 --- !u!1 &1706702211
 GameObject:
   m_ObjectHideFlags: 0
@@ -9998,8 +9999,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 885d0762897dd77429b4e8f89911379d, type: 2}
   - {fileID: 11400000, guid: abb29702256339d47a0a6bff2be6a878, type: 2}
   - {fileID: 11400000, guid: 734d296efef694d47a0f6fe1c9b59df8, type: 2}
-  bossRewardBase: 1000
-  rewardMultiplier: 1.1
+  bossRewardBase: 1150
+  rewardMultiplier: 1.2
   customizeManager: {fileID: 768663199}
   uiFlipController: {fileID: 1848800898}
   pointsIcon: {fileID: 1738954479}
@@ -11697,7 +11698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25}
+  m_AnchoredPosition: {x: 0, y: -25.000015}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968676190

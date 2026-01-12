@@ -60,6 +60,9 @@ public class BossManager : MonoBehaviour
     [Header("Background")]
     public Image backgroundImage;
 
+    private Queue<string> lastBosses = new Queue<string>();
+    private const int NoRepeatCount = 5;
+
     void Start()
     {
         previousMusic = musicSource.clip;
@@ -115,7 +118,7 @@ public class BossManager : MonoBehaviour
 
         previousMusic = musicSource.clip;
 
-        BossData boss = bosses[Random.Range(0, bosses.Count)];
+        BossData boss = GetNextBoss();
         currentBossName = boss.bossName;
 
         Debug.Log("ID entity: " + boss.GetEntityId());
@@ -173,6 +176,27 @@ public class BossManager : MonoBehaviour
 
         bossBar.SetProgress(1f);
     }
+
+    private BossData GetNextBoss()
+    {
+        // Try to build a list of bosses NOT in the lastBosses queue
+        List<BossData> possible = new List<BossData>();
+
+        foreach (var b in bosses)
+        {
+            if (!lastBosses.Contains(b.bossID))
+                possible.Add(b);
+        }
+
+        // If all bosses are in the blacklist (e.g., few bosses available), fallback to full list
+        if (possible.Count == 0)
+            possible = bosses;
+
+        // Pick random boss from filtered list
+        BossData selected = possible[Random.Range(0, possible.Count)];
+        return selected;
+    }
+
 
     IEnumerator PlayDioIntro(BossData boss)
     {
@@ -278,6 +302,15 @@ public class BossManager : MonoBehaviour
             dict[currentBossData.bossID]++;
 
             SaveManager.Instance.Save();
+        }
+
+        // Track boss to avoid repeats
+        if (currentBossData != null)
+        {
+            lastBosses.Enqueue(currentBossData.bossID);
+
+            if (lastBosses.Count > NoRepeatCount)
+                lastBosses.Dequeue(); // keep only last 5
         }
 
         // ------------------ NORMAL CLEANUP ------------------

@@ -17,7 +17,6 @@ public class GameSaveData
     // -------------- CUSTOMIZATION --------------
     public List<string> unlockedItems = new List<string>();
     public Dictionary<string, string> selectedItems = new Dictionary<string, string>();
-    // { "Skin" : "skin_23", "Background" : "bg_4" ... }
 
     // -------------- DRAGON BALLS --------------
     public List<DragonBallType> collectedDragonBalls = new();

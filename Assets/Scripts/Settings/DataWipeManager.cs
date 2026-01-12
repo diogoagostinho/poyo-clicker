@@ -8,6 +8,7 @@ public class DataWipeManager : MonoBehaviour
     public IdleUpgrade idleUpgrade;
     public BossManager bossManager;
     public TaskProgressManager taskProgressManager;
+    public DragonBallManager dragonBallManager;
 
     public void WipeAllData()
     {
@@ -16,28 +17,25 @@ public class DataWipeManager : MonoBehaviour
         PlayerPrefs.Save();
 
         // Reset prestige system
-        if (prestigeManager != null)
-            prestigeManager.ResetPrestigeData();
+        prestigeManager?.ResetPrestigeData();
 
         // Reset customize unlocks + selection
-        if (customizeManager != null)
-            customizeManager.ResetAllCustomizeData();
+        customizeManager?.ResetAllCustomizeData();
 
         // Reset clicker stats
-        if (clickerManager != null)
-            clickerManager.ResetProgress();
+        clickerManager?.ResetProgress();
 
         // Reset idle upgrade
-        if (idleUpgrade != null)
-            idleUpgrade.ResetUpgrade();
+        idleUpgrade?.ResetUpgrade();
 
         // Reset boss system
-        if (bossManager != null)
-            bossManager.ResetBossProgress();
+        bossManager?.ResetBossProgress();
 
-        // Reset task progress (boss defeated list, etc.)
-        if (taskProgressManager != null)
-            taskProgressManager.ResetAllProgress();
+        // Reset task progress
+        taskProgressManager?.ResetAllProgress();
+
+        // RESET DRAGON BALLS
+        dragonBallManager?.ResetDragonBalls();
 
         // Reload scene for a fully fresh start
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
