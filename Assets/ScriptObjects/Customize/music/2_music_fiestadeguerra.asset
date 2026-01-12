@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
+  m_Name: 2_music_fiestadeguerra
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 32
+  itemType: 2
+  isDefault: 0
+  unlockType: 0
+  itemName: Fiesta De Guerra
+  description: 
+  icon: {fileID: 4815476061570213978, guid: d2d27f8142882e645b18ef2853c4a630, type: 3}
+  cost: 3000
+  skinSprite: {fileID: 0}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: bcd79f8821e5afc4dbabee971d509480, type: 3}
+  requiredPrestigeCount: 0
+  requiredBossID: 
+  requiredItemID: 
+  customUnlockText: 
+  customClickSound: {fileID: 0}

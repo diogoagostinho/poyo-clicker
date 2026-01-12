@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
+  m_Name: 7_skin_poyofatnigga
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 13
+  itemType: 0
+  isDefault: 0
+  unlockType: 0
+  itemName: Fat Nigga
+  description: Poyo vai ao KFC
+  icon: {fileID: -9136991118782378354, guid: 419988c4c0bb56a469f8a20ff0876de9, type: 3}
+  cost: 5000
+  skinSprite: {fileID: -9136991118782378354, guid: 419988c4c0bb56a469f8a20ff0876de9, type: 3}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 0}
+  requiredPrestigeCount: 0
+  requiredBossID: 
+  customUnlockText: 
+  customClickSound: {fileID: 8300000, guid: 492072e421f6eca429537f2e73e6fbeb, type: 3}

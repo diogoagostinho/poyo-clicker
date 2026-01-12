@@ -28,5 +28,5 @@ MonoBehaviour:
   isDio: 1
   spawnSfx: {fileID: 8300000, guid: f7152fa861bcd194bad34810eef7fef9, type: 3}
   dioGrayscaleMaterial: {fileID: 2100000, guid: 86650da82a7802045bdffcabd1409a63, type: 2}
-  baseHealth: 100
-  healthMultiplier: 1.2
+  baseHealth: 300
+  healthMultiplier: 1.3

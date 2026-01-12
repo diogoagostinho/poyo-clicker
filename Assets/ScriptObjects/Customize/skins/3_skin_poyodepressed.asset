@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
+  m_Name: 3_skin_poyodepressed
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 12
+  itemType: 0
+  isDefault: 0
+  unlockType: 0
+  itemName: "Poyo com depress\xE3o :("
+  description: "\"Vou cometer suc\xEDdio\""
+  icon: {fileID: 1798357004641788094, guid: b9b7b6a4ea771f64f8e6365f36d31eed, type: 3}
+  cost: 1500
+  skinSprite: {fileID: 1798357004641788094, guid: b9b7b6a4ea771f64f8e6365f36d31eed, type: 3}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 0}
+  requiredPrestigeCount: 0
+  requiredBossID: 
+  requiredItemID: 
+  customUnlockText: 
+  customClickSound: {fileID: 0}

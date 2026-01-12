@@ -1167,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25.000015}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177701161
@@ -3877,7 +3877,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e4fef69ca603f4994a6765b8ed26a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomizeManager
-  allItems: []
+  allItems:
+  - {fileID: 11400000, guid: 443c07285d3811c49af5359a284f0025, type: 2}
+  - {fileID: 11400000, guid: 202df89565d7d454e9640fa39e2069fb, type: 2}
+  - {fileID: 11400000, guid: 61b6c666d49d6614fb40703e8b95bfdc, type: 2}
+  - {fileID: 11400000, guid: 580545e1ae5b3e7449f57304434543dd, type: 2}
+  - {fileID: 11400000, guid: 6a0444e6b8de3d44e9ed377b25998a58, type: 2}
+  - {fileID: 11400000, guid: 11db4c102d4fcba43b9092f3d9087492, type: 2}
+  - {fileID: 11400000, guid: c2fd280abcf0c9248acffca3da5ce5d4, type: 2}
+  - {fileID: 11400000, guid: 0dbad9d12e804804089f3237d1b4a923, type: 2}
+  - {fileID: 11400000, guid: 24c2d51751921e14493651df37e7bc24, type: 2}
+  - {fileID: 11400000, guid: 9926572ca6159554783bf28e8d4d7ac6, type: 2}
+  - {fileID: 11400000, guid: 1935aa3702f27e8438bea1199a423bf1, type: 2}
+  - {fileID: 11400000, guid: e9430a91d6379144783ae47ab9a9baa7, type: 2}
+  - {fileID: 11400000, guid: 80eddcc35a557da4f9440c6b6ee8cae7, type: 2}
+  - {fileID: 11400000, guid: 7f8d641284d3c9d4d83beddb96ff8e60, type: 2}
+  - {fileID: 11400000, guid: 993febfc7847a4848a5ae45e36ed9307, type: 2}
+  - {fileID: 11400000, guid: f76eb134c22dc67429dedefcb8fc489c, type: 2}
+  - {fileID: 11400000, guid: 9a0e5689ebfafea4e8d1ec47f246771c, type: 2}
+  - {fileID: 11400000, guid: 4a56a35b0649e17408561153e6b69727, type: 2}
+  - {fileID: 11400000, guid: 9303b125511635141a4483c201ce198c, type: 2}
+  - {fileID: 11400000, guid: d923b5f317e0526448da6dd027678c00, type: 2}
+  - {fileID: 11400000, guid: af60df5833a52f145b25e0bdd125362f, type: 2}
+  - {fileID: 11400000, guid: f752dcdcf1367b040b8734e780a71b3e, type: 2}
+  - {fileID: 11400000, guid: a0c1002d7ba8e8042b971d24a8319756, type: 2}
+  - {fileID: 11400000, guid: 7d02dcd5d99ea6e438bb83560d002a47, type: 2}
+  - {fileID: 11400000, guid: 63ed05bc6286ae0499f60f68dbd41c4b, type: 2}
+  - {fileID: 11400000, guid: 39386492b75571944aa0be4323573e15, type: 2}
+  - {fileID: 11400000, guid: c54b7c8ad894aee4da302964bd7872ed, type: 2}
+  - {fileID: 11400000, guid: c8ef16436fe0cb8479a43263e454084d, type: 2}
+  - {fileID: 11400000, guid: 9b1c1410cce8ba344bf8744f8471e27a, type: 2}
+  - {fileID: 11400000, guid: d79bbb2c126aa5642b2bb00d5efb58cb, type: 2}
+  - {fileID: 11400000, guid: ba88617180762604fa58dbdefe309deb, type: 2}
   clickerManager: {fileID: 826222765}
   clickerImage: {fileID: 1447781791}
   backgroundImage: {fileID: 1799486742}
@@ -4545,7 +4576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25.000015}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907327985
@@ -9942,16 +9973,33 @@ MonoBehaviour:
   bossBar: {fileID: 128429218}
   clickerImage: {fileID: 1447781791}
   baseChargeRequirement: 300
-  chargeDifficultyMultiplier: 1.15
+  chargeDifficultyMultiplier: 1.2
   bossObjectiveText: {fileID: 541356743}
   musicSource: {fileID: 610248373}
   originalMusic: {fileID: 8300000, guid: d2c7c75242a993a4c944aa468798cfce, type: 3}
   bosses:
+  - {fileID: 11400000, guid: ecb28f1e5bb225940b696726208f03e5, type: 2}
+  - {fileID: 11400000, guid: a0516742f38837445b2b19b5bc79f688, type: 2}
+  - {fileID: 11400000, guid: da4fe5b1c4af16e47982fc2135083f4b, type: 2}
   - {fileID: 11400000, guid: d320d9a33dcbecc4ab8b56ac59d6a1e0, type: 2}
-  - {fileID: 11400000, guid: 734d296efef694d47a0f6fe1c9b59df8, type: 2}
+  - {fileID: 11400000, guid: 66167afa6eeb85749a7fd379cb8eb9e9, type: 2}
   - {fileID: 11400000, guid: 269f850c06b803141af692b906bb5194, type: 2}
+  - {fileID: 11400000, guid: 778b114d0c674d5498bb11a0037b0fd2, type: 2}
+  - {fileID: 11400000, guid: fa5931a27b03b38498841f3c4ca4aceb, type: 2}
+  - {fileID: 11400000, guid: 905ee1bee1d2e1843b7e4175eecdfc84, type: 2}
+  - {fileID: 11400000, guid: 52fde6e583b28ee4dbf4ca955a600d12, type: 2}
+  - {fileID: 11400000, guid: 79e9cde846cedb845b7c98ffa97da729, type: 2}
+  - {fileID: 11400000, guid: 2e8c91406f30e3742bc74f2404d58c67, type: 2}
+  - {fileID: 11400000, guid: 4583a201598ec464696983aa75a6b7d5, type: 2}
+  - {fileID: 11400000, guid: fee02f5e89c24514db498346890fa436, type: 2}
+  - {fileID: 11400000, guid: 0018795bd3e04cf4ebd1ddbf8acd87f6, type: 2}
+  - {fileID: 11400000, guid: 1008e37092504c44ea88c8db0c1a1b7c, type: 2}
+  - {fileID: 11400000, guid: 8edf0b76420c9554ca2f8ec2c8d189a8, type: 2}
+  - {fileID: 11400000, guid: 885d0762897dd77429b4e8f89911379d, type: 2}
+  - {fileID: 11400000, guid: abb29702256339d47a0a6bff2be6a878, type: 2}
+  - {fileID: 11400000, guid: 734d296efef694d47a0f6fe1c9b59df8, type: 2}
   bossRewardBase: 1000
-  rewardMultiplier: 1.5
+  rewardMultiplier: 1.1
   customizeManager: {fileID: 768663199}
   uiFlipController: {fileID: 1848800898}
   pointsIcon: {fileID: 1738954479}
@@ -11649,7 +11697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25.000015}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968676190

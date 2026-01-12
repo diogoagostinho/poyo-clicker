@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58107ce2987a09441a11daa99bff2a5e, type: 3}
+  m_Name: 12_skin_skarner
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizeItemData
+  itemId: 15
+  itemType: 0
+  isDefault: 0
+  itemName: Skarner
+  description: "Porqu\xEA?"
+  icon: {fileID: -4525929995853189401, guid: bc8a2809c9004b04b8ff59efc6e21d64, type: 3}
+  cost: 999999
+  skinSprite: {fileID: -4525929995853189401, guid: bc8a2809c9004b04b8ff59efc6e21d64, type: 3}
+  backgroundSprite: {fileID: 0}
+  musicClip: {fileID: 0}

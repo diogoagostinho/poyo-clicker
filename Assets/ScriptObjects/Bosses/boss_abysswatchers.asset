@@ -28,5 +28,5 @@ MonoBehaviour:
   isDio: 0
   spawnSfx: {fileID: 0}
   dioGrayscaleMaterial: {fileID: 0}
-  baseHealth: 300
+  baseHealth: 500
   healthMultiplier: 1.5
